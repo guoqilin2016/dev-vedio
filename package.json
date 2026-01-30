@@ -1,0 +1,43 @@
+{
+  "name": "dev-vedio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run studio\" \"npm run server:dev\"",
+    "studio": "remotion studio src/index.ts",
+    "build": "remotion bundle src/index.ts --out-dir=build",
+    "render": "remotion render src/index.ts HelloWorld --output=out/HelloWorld.mp4",
+    "server:dev": "tsx watch src/server/index.ts",
+    "server:start": "tsx src/server/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guoqilin2016/dev-vedio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/guoqilin2016/dev-vedio/issues"
+  },
+  "homepage": "https://github.com/guoqilin2016/dev-vedio#readme",
+  "dependencies": {
+    "@remotion/bundler": "^4.0.414",
+    "@remotion/cli": "^4.0.414",
+    "@remotion/renderer": "^4.0.414",
+    "express": "^5.2.1",
+    "remotion": "^4.0.414",
+    "zod": "^3.22.3"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.1.0",
+    "@types/react": "^19.2.10",
+    "concurrently": "^9.2.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
