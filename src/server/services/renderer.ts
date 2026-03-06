@@ -88,7 +88,7 @@ export async function renderVideo(
 // 获取可用的 composition 列表
 export async function getAvailableCompositions(): Promise<string[]> {
   // 这里可以通过 bundle 动态获取，但简单起见直接返回硬编码列表
-  return ["HelloWorld"];
+  return ["HelloWorld", "TextPresentation"];
 }
 
 // 清除 bundle 缓存（用于开发时热重载）

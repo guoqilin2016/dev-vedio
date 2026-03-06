@@ -1,0 +1,229 @@
+1
+00:00:52,133 --> 00:00:55,666
+首先咱们来介绍一下Claude Opus 4.6
+First, let’s introduce Claude Opus 4.6
+
+2
+00:00:56,300 --> 00:00:57,333
+这款模型
+This model
+
+3
+00:00:57,433 --> 00:00:59,000
+依然提供了
+Still provided
+
+4
+00:00:59,066 --> 00:01:01,100
+100万TOKEN的上下文窗口
+Context window of 1 million TOKEN
+
+5
+00:01:01,433 --> 00:01:02,166
+毋庸置疑
+Undoubtedly
+
+6
+00:01:02,166 --> 00:01:04,666
+在各大基准测试的得分上
+Scores on major benchmark tests
+
+7
+00:01:04,666 --> 00:01:06,200
+相较于过去的模型
+Compared to past models
+
+8
+00:01:06,200 --> 00:01:07,666
+它总是最好的
+it's always the best
+
+9
+00:01:07,900 --> 00:01:09,400
+从定价上来看
+From the perspective of pricing
+
+10
+00:01:09,400 --> 00:01:12,433
+4.6依然使用了同样的定价
+4.6 still uses the same pricing
+
+11
+00:01:12,633 --> 00:01:14,966
+每百万输入输出TOKEN的价格
+Price of input and output TOKEN per million
+
+12
+00:01:14,966 --> 00:01:17,066
+分别是5美元和25美元
+They are $5 and $25 respectively.
+
+13
+00:01:17,600 --> 00:01:20,700
+我想大家应该不常会用API
+I think you don’t often use APIs.
+
+14
+00:01:20,800 --> 00:01:23,033
+直接来集成到比如像Claude
+Directly integrate into, for example, Claude
+
+15
+00:01:23,033 --> 00:01:24,833
+Code等应用中
+Code and other applications
+
+16
+00:01:24,966 --> 00:01:25,566
+更多的呢
+More
+
+17
+00:01:25,566 --> 00:01:26,866
+还是用的订阅
+Still use subscription
+
+18
+00:01:27,300 --> 00:01:28,766
+不过价格没有变
+But the price hasn’t changed
+
+19
+00:01:29,200 --> 00:01:30,266
+供大家参考
+For your reference
+
+20
+00:01:30,466 --> 00:01:33,366
+Opus 4.6模型在任务执行中
+Opus 4.6 model in action
+
+21
+00:01:33,366 --> 00:01:35,600
+通常会进行深度的思考
+Usually think deeply
+
+22
+00:01:35,600 --> 00:01:36,700
+谨慎的推理
+careful reasoning
+
+23
+00:01:36,866 --> 00:01:38,566
+那么在一些任务的执行上
+Then in the execution of some tasks
+
+24
+00:01:38,566 --> 00:01:39,400
+如果大家发觉
+If everyone finds out
+
+25
+00:01:39,400 --> 00:01:41,700
+模型过度的进行了思考呢
+Is the model overthinking?
+
+26
+00:01:41,700 --> 00:01:44,366
+可以通过参数effort来调整
+It can be adjusted through the parameter effort
+
+27
+00:01:44,633 --> 00:01:46,633
+现在来到OpenAI这一侧
+Now coming to the OpenAI side
+
+28
+00:01:47,600 --> 00:01:49,700
+新模型GPT-5.3-Codex
+New model GPT-5.3-Codex
+
+29
+00:01:49,900 --> 00:01:52,833
+这是一款号称最强的编程模型
+This is a programming model known as the strongest
+
+30
+00:01:53,633 --> 00:01:55,800
+同样的相较于过去的模型呢
+Same thing compared to past models
+
+31
+00:01:55,800 --> 00:01:58,166
+它在各类测试的评分上
+It scores on various tests
+
+32
+00:01:58,166 --> 00:01:59,766
+都表现得非常突出
+All performed very prominently
+
+33
+00:01:59,900 --> 00:02:01,433
+目前发布的模型呢
+What about the models currently released?
+
+34
+00:02:01,433 --> 00:02:04,100
+已经不太会跟其他厂商的模型
+I am no longer able to compare with models from other manufacturers.
+
+35
+00:02:04,100 --> 00:02:05,433
+进行直接对比
+Make a direct comparison
+
+36
+00:02:05,633 --> 00:02:08,500
+我们从这些基准测试的数据图表上
+From the data charts of these benchmarks, we
+
+37
+00:02:08,500 --> 00:02:11,866
+能看到主要对比的还是自家的模型
+You can see that the main comparison is still with our own model.
+
+38
+00:02:12,433 --> 00:02:15,366
+根据我目前对于这篇文章的扫描呢
+According to my current scan of this article
+
+39
+00:02:15,366 --> 00:02:17,366
+并没有看到它明确的介绍
+I didn’t see it clearly introduced
+
+40
+00:02:17,366 --> 00:02:19,566
+它的上下文窗口的长度
+the length of its context window
+
+41
+00:02:20,000 --> 00:02:21,033
+如果大家知道的
+If everyone knows
+
+42
+00:02:21,033 --> 00:02:22,866
+也欢迎在评论区给我留言
+You are also welcome to leave me a message in the comment area
+
+43
+00:02:23,600 --> 00:02:28,200
+目前GPT-5.3-Codex已经可以在Codex命令行
+Currently, GPT-5.3-Codex can be used on the Codex command line.
+
+44
+00:02:28,600 --> 00:02:30,700
+或Codex应用中使用
+Or used in Codex application
+
+45
+00:02:31,066 --> 00:02:33,800
+我们只需要更新对应的应用程序
+We just need to update the corresponding application
+
+46
+00:02:33,966 --> 00:02:36,733
+就可以使用到这款最新的模型了
+You can use this latest model

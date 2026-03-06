@@ -1,0 +1,54 @@
+{
+  "totalDurationFrames": 1556,
+  "fps": 30,
+  "scenes": [
+    {
+      "index": 1,
+      "audioFile": "audio/scene1.mp3",
+      "audioDuration": 6.552,
+      "startFrame": 0,
+      "subtitleStartFrame": 9,
+      "subtitleEndFrame": 206
+    },
+    {
+      "index": 2,
+      "audioFile": "audio/scene2.mp3",
+      "audioDuration": 7.8,
+      "startFrame": 227,
+      "subtitleStartFrame": 236,
+      "subtitleEndFrame": 470
+    },
+    {
+      "index": 3,
+      "audioFile": "audio/scene3.mp3",
+      "audioDuration": 7.512,
+      "startFrame": 491,
+      "subtitleStartFrame": 500,
+      "subtitleEndFrame": 725
+    },
+    {
+      "index": 4,
+      "audioFile": "audio/scene4.mp3",
+      "audioDuration": 10.32,
+      "startFrame": 746,
+      "subtitleStartFrame": 755,
+      "subtitleEndFrame": 1065
+    },
+    {
+      "index": 5,
+      "audioFile": "audio/scene5.mp3",
+      "audioDuration": 7.128,
+      "startFrame": 1086,
+      "subtitleStartFrame": 1095,
+      "subtitleEndFrame": 1309
+    },
+    {
+      "index": 6,
+      "audioFile": "audio/scene6.mp3",
+      "audioDuration": 6.528,
+      "startFrame": 1330,
+      "subtitleStartFrame": 1339,
+      "subtitleEndFrame": 1535
+    }
+  ]
+}

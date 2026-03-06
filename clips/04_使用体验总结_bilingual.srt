@@ -1,0 +1,109 @@
+1
+00:10:05,900 --> 00:10:08,266
+从单个的任务的执行上来讲呢
+In terms of execution of a single task?
+
+2
+00:10:08,266 --> 00:10:08,900
+相对而言
+relatively speaking
+
+3
+00:10:08,900 --> 00:10:12,066
+我觉得Claude Code体验会更加的平滑一些
+I think the Claude Code experience will be smoother
+
+4
+00:10:12,200 --> 00:10:15,000
+对于项目的理解会更好一些
+Understand the project better
+
+5
+00:10:15,100 --> 00:10:16,733
+对于项目的配置执行呢
+What about project configuration execution?
+
+6
+00:10:16,733 --> 00:10:17,833
+也更平滑
+Also smoother
+
+7
+00:10:17,900 --> 00:10:21,933
+而Codex在整个项目的理解和运行上
+And Codex is very important in understanding and running the entire project.
+
+8
+00:10:21,933 --> 00:10:23,600
+似乎在某些方面
+It seems that in some ways
+
+9
+00:10:23,666 --> 00:10:25,533
+还会显得有些磕磕绊绊
+It will also look a little stumbling.
+
+10
+00:10:28,400 --> 00:10:29,700
+特别是在后续
+Especially in the follow-up
+
+11
+00:10:29,700 --> 00:10:33,100
+对于这个Swift项目的执行上
+For the execution of this Swift project
+
+12
+00:10:33,100 --> 00:10:35,633
+花了蛮多时间去理解梳理
+It took a lot of time to understand and sort out
+
+13
+00:10:35,700 --> 00:10:38,600
+来最终帮我将这个应用程序启动起来
+Come finally help me get this app up and running
+
+14
+00:10:39,666 --> 00:10:42,300
+当然了这也是我在这个特定的应用
+Of course that's what I'm doing in this particular application
+
+15
+00:10:42,300 --> 00:10:45,433
+特定的任务执行上的一个直观的感觉
+An intuitive feel for specific task execution
+
+16
+00:10:45,766 --> 00:10:47,900
+那么大家在日常的开发中
+So in daily development, everyone
+
+17
+00:10:47,900 --> 00:10:50,066
+是否已经开始使用这些模型
+Have you started using these models?
+
+18
+00:10:50,233 --> 00:10:52,333
+大家在使用中的体验怎么样呢
+How is your experience in using it?
+
+19
+00:10:52,600 --> 00:10:54,333
+欢迎在评论区给我留言
+Welcome to leave me a message in the comment area
+
+20
+00:10:54,500 --> 00:10:56,266
+那今天的分享就先到这里
+So today’s sharing will start here.
+
+21
+00:10:56,266 --> 00:10:58,800
+感谢大家收看我们下次视频分享
+Thank you everyone for watching our next video sharing
+
+22
+00:10:58,800 --> 00:11:00,266
+再见同学们拜拜
+Goodbye, classmates.
