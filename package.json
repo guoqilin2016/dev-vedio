@@ -16,6 +16,9 @@
     "sync:subtitle": "tsx scripts/sync-subtitle.ts",
     "generate:digital-human": "tsx scripts/generate-digital-human.ts",
     "generate:heygen": "tsx scripts/generate-heygen.ts",
+    "generate:voiceover:openclaw": "tsx scripts/generate-voiceover-openclaw.ts",
+    "sync:subtitle:openclaw": "tsx scripts/sync-subtitle-openclaw.ts",
+    "render:openclaw": "remotion render src/index.ts OpenClawAI --output=out/OpenClawAI.mp4",
     "typecheck": "tsc --noEmit"
   },
   "repository": {

@@ -1,8 +1,16 @@
 import React from "react";
 import { Composition } from "remotion";
-import { HelloWorld, HelloWorldSchema, TextPresentation, TextPresentationSchema } from "./compositions";
+import {
+  HelloWorld,
+  HelloWorldSchema,
+  TextPresentation,
+  TextPresentationSchema,
+  OpenClawAI,
+  OpenClawAISchema,
+} from "./compositions";
 import { DEFAULT_VIDEO_CONFIG } from "./shared/types";
 import nitrogenSubtitles from "./data/nitrogen-subtitles.json";
+import openclawSubtitles from "./data/openclaw-subtitles.json";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -202,6 +210,116 @@ export const RemotionRoot: React.FC = () => {
             scale: 0.25,
             borderRadius: 20,
           },
+        }}
+      />
+      {/* 竖屏短视频：OpenClaw AI工具 */}
+      <Composition
+        id="OpenClawAI"
+        component={OpenClawAI}
+        durationInFrames={2848}
+        fps={30}
+        width={1080}
+        height={1920}
+        schema={OpenClawAISchema}
+        defaultProps={{
+          hookLine1: "你还在手动复制粘贴？",
+          hookLine2: "2026最火AI已经拿到电脑最高权限",
+          hookStyle: "glitch",
+
+          anxietyTitle: "AI不仅自己干活，还能雇人干活",
+          anxietyPoints: [
+            "浏览器自动操作",
+            "终端命令执行",
+            "邮箱自动处理",
+            "加密货币结算",
+          ],
+          anxietyQuote: "不掌握AI，就只能给AI打工",
+          anxietyInteraction: "觉得后背发凉？评论区扣1！",
+
+          hope1Title: "从「陪聊」变「实干」",
+          hope1Number: "01",
+          hope1Content: "AI能在后台24小时接管浏览器、终端和邮箱",
+          hope1Highlight: "微信发一句话，AI替你执行",
+
+          hope2Title: "打破人机雇佣边界",
+          hope2Number: "02",
+          hope2Content: "AI在平台发布悬赏，自动面试人类，加密货币结算",
+          hope2Highlight: "AI就是你最强外包团队",
+
+          hope3Title: "尽早入局积累「复利」",
+          hope3Number: "03",
+          hope3Content: "每次试错都变成驾驭AI的经验值",
+          hope3Highlight: "拉开断层差距的关键",
+
+          satisfactionTitle: "10分钟看到效果",
+          satisfactionSubtitle: "「30分钟快闪群」实验",
+          satisfactionRoles: [
+            "产品经理",
+            "技术开发",
+            "内容运营",
+            "市场营销",
+            "项目管理",
+          ],
+          satisfactionQuote: "全员皆可上手，立刻享受自动化爽感",
+
+          ctaTitle: "做到 > 知道",
+          ctaContent: "今天下班后花10分钟，让AI帮你解决最繁琐的工作",
+          ctaInteraction: "评论区告诉我，你打算让AI帮你做什么？",
+          ctaSlogan: "抢占实干者的时代复利",
+
+          keyQuotes: [
+            "AI接管电脑，还雇人干活",
+            "不掌握AI，就只能给AI打工",
+            "10分钟上手，全员皆可",
+            "做到 > 知道",
+            "抢占实干者的时代复利",
+          ],
+
+          backgroundColor: "#0a0a0f",
+          textColor: "#ffffff",
+          accentColor: "#00f0ff",
+          highlightColor: "#4d7cff",
+          warningColor: "#ff3366",
+
+          subtitle: {
+            enabled: true,
+            fontSize: 44,
+            position: "bottom",
+            highlightColor: "#00f0ff",
+            textColor: "#ffffff",
+            backgroundColor: "rgba(10, 10, 15, 0.85)",
+          },
+
+          audio: {
+            backgroundMusic: "music/background.mp3",
+            backgroundMusicVolume: 0.2,
+            voiceoverEnabled: true,
+            voiceoverVolume: 1.0,
+            voiceId: "zh-CN-YunxiNeural",
+            voiceRate: 1.05,
+            voiceoverAudioFiles: [
+              "audio/openclaw-scene1.mp3",
+              "audio/openclaw-scene2.mp3",
+              "audio/openclaw-scene3.mp3",
+              "audio/openclaw-scene4.mp3",
+              "audio/openclaw-scene5.mp3",
+              "audio/openclaw-scene6.mp3",
+              "audio/openclaw-scene7.mp3",
+            ],
+          },
+
+          voiceoverScripts: [
+            "你还在把ChatGPT当成高级搜索工具吗？醒醒吧，2026年最火的AI已经拿到了电脑的最高权限！",
+            "过去我们总担心AI会不会取代人类，但现在更残酷的现实是：如果你还在岸边观望，你可能正在变成AI的肉体外包。当别人让AI接管枯燥工作时，你的竞争力正在被降维打击。",
+            "别慌，只要看懂3个真相，你也能轻松破局。第一，让AI从陪聊变实干。现在的AI能在后台24小时接管你的浏览器、终端和邮箱。",
+            "第二，打破人机雇佣边界。AI遇到障碍时会在平台上发布悬赏，自动面试人类，任务完成后用加密货币结算。利用好这个机制，AI就是你最强大的外包团队。",
+            "第三，尽早入局积累复利。早期的每一次试错和调试，都会变成驾驭AI的经验值。把AI整合进工作流，才是拉开断层差距的关键。",
+            "你可能觉得部署这种AI很难？有公司搞了一个30分钟快闪群，从产品、技术到运营，不同岗位的同事纷纷成功部署，每个人都发掘出了极具启发性的提效场景。",
+            "AI时代最残酷的分水岭，不是知道和不知道，而是做到和没做到。评论区告诉我，你打算今天下班后让AI帮你解决哪一项最繁琐的工作？",
+          ],
+
+          precomputedSubtitles: openclawSubtitles,
+          sceneDurations: [300, 466, 431, 441, 369, 462, 379],
         }}
       />
     </>
