@@ -7,10 +7,16 @@ import {
   TextPresentationSchema,
   OpenClawAI,
   OpenClawAISchema,
+  ClawSkills,
+  ClawSkillsSchema,
+  SuperPowers,
+  SuperPowersSchema,
 } from "./compositions";
 import { DEFAULT_VIDEO_CONFIG } from "./shared/types";
 import nitrogenSubtitles from "./data/nitrogen-subtitles.json";
 import openclawSubtitles from "./data/openclaw-subtitles.json";
+import clawskillsSubtitles from "./data/clawskills-subtitles.json";
+import superpowersSubtitles from "./data/superpowers-subtitles.json";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -320,6 +326,253 @@ export const RemotionRoot: React.FC = () => {
 
           precomputedSubtitles: openclawSubtitles,
           sceneDurations: [300, 466, 431, 441, 369, 462, 379],
+        }}
+      />
+      {/* 竖屏短视频：ClawHub TOP 20 神级 Skill */}
+      <Composition
+        id="ClawSkills"
+        component={ClawSkills}
+        durationInFrames={3166}
+        fps={30}
+        width={1080}
+        height={1920}
+        schema={ClawSkillsSchema}
+        defaultProps={{
+          hookLine1: "你的AI还在帮你查天气？",
+          hookLine2: "别人的AI已经24小时替你值班了",
+          hookStyle: "glitch",
+
+          overviewTitle: "ClawHub TOP 20 神级 Skill",
+          overviewSubtitle: "系统评分 > 3.4 · 可直接抄作业",
+          overviewStats: {
+            totalSkills: 20,
+            minScore: 3.4,
+            categories: 4,
+          },
+
+          categories: [
+            {
+              title: "核心增强与护城河",
+              tag: "CORE SHIELD",
+              icon: "🛡️",
+              color: "#00e5ff",
+              skills: [
+                { name: "openclaw-backup", desc: "一键灾备，重装不失忆", icon: "💾" },
+                { name: "openclaw-shield", desc: "防Prompt注入安全盾", icon: "🔒" },
+                { name: "ops-guardrails", desc: "高危命令二次授权", icon: "🚧" },
+                { name: "openclaw-cli", desc: "AI自查日志修端口", icon: "⌨️" },
+                { name: "skill-guard", desc: "新技能安装前查毒", icon: "🔍" },
+              ],
+            },
+            {
+              title: "AI进化与自我繁衍",
+              tag: "AI EVOLUTION",
+              icon: "🧬",
+              color: "#a855f7",
+              skills: [
+                { name: "self-improving", desc: "自动建错题本越用越聪明", icon: "📈" },
+                { name: "skill-builder", desc: "手动流程打包成新技能", icon: "🏗️" },
+                { name: "self-evolving", desc: "技能自动升级修bug", icon: "🔄" },
+                { name: "skill-scanner", desc: "主动推荐你需要的技能", icon: "🎯" },
+              ],
+            },
+            {
+              title: "自动化与浏览器控制",
+              tag: "AUTOMATION",
+              icon: "🤖",
+              color: "#22c55e",
+              skills: [
+                { name: "auto-monitor", desc: "CPU飙高服务挂秒报警", icon: "📡" },
+                { name: "auto-workflow", desc: "串联任务定时自动跑", icon: "⚡" },
+                { name: "browser-auto", desc: "后台静默操控网页", icon: "🌐" },
+                { name: "lu-auto-deploy", desc: "一行命令推代码重启", icon: "🚀" },
+                { name: "ai-web-auto", desc: "验证码滑块全搞定", icon: "🧩" },
+              ],
+            },
+            {
+              title: "生产力与数据提取",
+              tag: "PRODUCTIVITY",
+              icon: "💼",
+              color: "#f59e0b",
+              skills: [
+                { name: "multi-search", desc: "17引擎聚合搜索白嫖", icon: "🔎" },
+                { name: "file-summary", desc: "PDF/Excel三秒出大纲", icon: "📄" },
+                { name: "file-organizer", desc: "Downloads自动归类", icon: "📁" },
+                { name: "productivity-os", desc: "日程规划催进度", icon: "📅" },
+                { name: "git-cli", desc: "Git冲突一键搞定", icon: "🔀" },
+                { name: "visual-sorter", desc: "看图片内容自动分类", icon: "👁️" },
+              ],
+            },
+          ],
+
+          ctaTitle: "20个神级插件 · 评分3.4+",
+          ctaContent: "评论区告诉我，你最想先装哪一个？",
+          ctaSlogan: "收藏起来，找不到别怪我",
+
+          backgroundColor: "#0a0a12",
+          textColor: "#ffffff",
+          accentColor: "#ff6b35",
+          highlightColor: "#00e5ff",
+          goldColor: "#ffd700",
+
+          subtitle: {
+            enabled: true,
+            fontSize: 44,
+            position: "bottom",
+            highlightColor: "#ff6b35",
+            textColor: "#ffffff",
+            backgroundColor: "rgba(10, 10, 18, 0.85)",
+          },
+
+          audio: {
+            backgroundMusic: "music/background.mp3",
+            backgroundMusicVolume: 0.2,
+            voiceoverEnabled: true,
+            voiceoverVolume: 1.0,
+            voiceId: "zh-CN-YunxiNeural",
+            voiceRate: 1.05,
+            voiceoverAudioFiles: [
+              "audio/clawskills-scene1.mp3",
+              "audio/clawskills-scene2.mp3",
+              "audio/clawskills-scene3.mp3",
+              "audio/clawskills-scene4.mp3",
+              "audio/clawskills-scene5.mp3",
+              "audio/clawskills-scene6.mp3",
+              "audio/clawskills-scene7.mp3",
+            ],
+          },
+
+          voiceoverScripts: [
+            "你的AI还在帮你查天气、写周报？别人的AI已经能自动备份数据、扫描后门、24小时替你值班了！",
+            "这就是ClawHub评分最高的20个神级Skill！系统评分全在3.4以上，每一个都是OpenClaw生态里的必装硬核插件。分四大类给你讲清楚，看完直接抄作业！",
+            "第一类，核心护城河！五个必装技能。一键备份记忆和配置，重装系统也不怕。安全盾牌防止恶意注入。高危命令二次授权。AI自己查日志修端口。新技能安装前自动查毒。装完这五个，铜墙铁壁！",
+            "第二类，AI自我进化！自动建错题本，用得越多越聪明。手动流程一键打包成新技能。技能自己读报错日志升级修bug。还能主动推荐你需要的技能。这叫什么？AI觉醒了！",
+            "第三类，自动化军团！CPU飙高秒报警。定时串联浏览器、新闻、PDF、Discord全自动。一行命令推代码重启Docker。验证码滑块全搞定。你只管躺着，AI替你干！",
+            "第四类，数据榨汁机！17个搜索引擎聚合白嫖。PDF、Excel三秒出大纲。Downloads自动归类。日程规划催进度。Git冲突一键解决。甚至能看图片内容，自动分类发票和表情包！",
+            "这20个技能全是评分3.4以上的神级插件！评论区告诉我，你最想先装哪一个？收藏起来，到时候找不到可别怪我！",
+          ],
+
+          precomputedSubtitles: clawskillsSubtitles,
+          sceneDurations: [354, 430, 570, 471, 492, 497, 352],
+        }}
+      />
+      {/* 竖屏短视频：SuperPowers AI编程范式转移 */}
+      <Composition
+        id="SuperPowers"
+        component={SuperPowers}
+        durationInFrames={3115}
+        fps={30}
+        width={1080}
+        height={1920}
+        schema={SuperPowersSchema}
+        defaultProps={{
+          hookLine1: "你的AI还在一句话写代码？",
+          hookLine2: "别人的AI已经是完整工程团队了",
+          hookStyle: "glitch",
+          githubStars: 84000,
+          githubForks: 6600,
+
+          problemTitle: "说需求 → 直接写代码",
+          problemQuote: "能跑 ≠ 能维护",
+          problemLines: [
+            "没有设计文档",
+            "没有测试用例",
+            "没有代码审查",
+            "项目很快乱成一团",
+          ],
+
+          pipelineTitle: "7 阶段强制流水线",
+          pipelineSubtitle: "核心逻辑极其优雅 · 缺一不可",
+          pipelineSteps: [
+            { name: "苏格拉底追问", tag: "QUESTION", icon: "🤔", color: "#a78bfa", desc: "逼你把需求说清楚" },
+            { name: "设计文档验证", tag: "DESIGN", icon: "📐", color: "#8b5cf6", desc: "自动生成设计文档" },
+            { name: "Git Worktree", tag: "ISOLATE", icon: "🌿", color: "#22c55e", desc: "隔离工作区零污染" },
+            { name: "计划拆分", tag: "PLAN", icon: "📋", color: "#06b6d4", desc: "精确到文件和代码片段" },
+            { name: "TDD 红绿重构", tag: "TDD", icon: "🧪", color: "#f97316", desc: "跳过测试直接删代码" },
+            { name: "双阶段审查", tag: "REVIEW", icon: "🔍", color: "#ef4444", desc: "Critical不过不许前进" },
+            { name: "自动开PR", tag: "SHIP", icon: "🚀", color: "#10b981", desc: "多Agent并行交付" },
+          ],
+
+          brainstormTitle: "先把需求逼清楚",
+          brainstormQuestions: [
+            "你的核心需求到底是什么？",
+            "边界情况考虑过了吗？",
+            "API接口要怎么设计？",
+            "这会影响哪些现有模块？",
+          ],
+          brainstormResult: "需求不清 → 不写一行代码",
+
+          tddTitle: "TDD 红绿重构",
+          tddPhases: [
+            { label: "写测试", color: "#ef4444", icon: "📝" },
+            { label: "看它失败", color: "#ef4444", icon: "❌" },
+            { label: "写代码", color: "#10b981", icon: "💻" },
+            { label: "看它通过", color: "#10b981", icon: "✅" },
+          ],
+          tddQuote: "跳过测试的代码 → 直接删掉重来",
+          reviewQuote: "Critical 问题不解决 → 不许前进",
+
+          platforms: [
+            { name: "Claude Code", icon: "🟠", color: "#f97316" },
+            { name: "Cursor", icon: "⚡", color: "#8b5cf6" },
+            { name: "Codex", icon: "🟢", color: "#10b981" },
+            { name: "Gemini CLI", icon: "🔵", color: "#3b82f6" },
+          ],
+          multiAgentTitle: "多Agent并行协作",
+          multiAgentDesc: "零配置安装 · 技能自动触发",
+
+          ctaLine1: "今天的AI只是你的副驾驶",
+          ctaLine2: "SuperPowers让它成为整个工程团队",
+          ctaContent: "评论区告诉我，你觉得AI编程的未来是什么？",
+          ctaSlogan: "关注不迷路 · 我们下期见",
+
+          backgroundColor: "#070810",
+          textColor: "#ffffff",
+          accentColor: "#8b5cf6",
+          highlightColor: "#06b6d4",
+          secondaryColor: "#f97316",
+          successColor: "#10b981",
+          dangerColor: "#ef4444",
+
+          subtitle: {
+            enabled: true,
+            fontSize: 44,
+            position: "bottom",
+            highlightColor: "#8b5cf6",
+            textColor: "#ffffff",
+            backgroundColor: "rgba(7, 8, 16, 0.85)",
+          },
+
+          audio: {
+            backgroundMusic: "music/background.mp3",
+            backgroundMusicVolume: 0.2,
+            voiceoverEnabled: true,
+            voiceoverVolume: 1.0,
+            voiceId: "zh-CN-YunxiNeural",
+            voiceRate: 1.05,
+            voiceoverAudioFiles: [
+              "audio/superpowers-scene1.mp3",
+              "audio/superpowers-scene2.mp3",
+              "audio/superpowers-scene3.mp3",
+              "audio/superpowers-scene4.mp3",
+              "audio/superpowers-scene5.mp3",
+              "audio/superpowers-scene6.mp3",
+              "audio/superpowers-scene7.mp3",
+            ],
+          },
+
+          voiceoverScripts: [
+            "AI编程的范式转移！SuperPowers已经在GitHub狂揽84000颗Star，Fork超过6600次，还在飙升中！一句话概括：它给AI编程助手装上了一整套真正的软件工程流程！",
+            "大多数AI编程助手是什么逻辑？你说一句需求，它直接开始写代码。结果呢？代码能跑，但项目很快乱成一团。因为它根本没有工程思维！",
+            "SuperPowers做了一件狠狠的事！强制AI按照真正的软件工程军规来工作！核心逻辑极其优雅：7阶段强制流水线，缺一不可！",
+            "先用苏格拉底式追问逼你把需求说清楚，再自动生成设计文档。设计通过后才开始拆任务，每个任务精确到文件路径和代码片段！",
+            "然后严格执行TDD红绿重构。先写测试，看它失败，再写代码，看它通过。跳过测试的代码直接删掉重来！每个任务完成后触发双阶段代码审查，Critical问题不解决不许前进！",
+            "最后多Agent并行协作，主Agent调度子Agent分头执行，跑完自动开PR！已支持Claude Code、Cursor、Codex、Gemini CLI全平台，零配置安装，技能自动触发！",
+            "今天的AI只是你的副驾驶，SuperPowers要让它成为整个工程团队！评论区告诉我，你觉得AI编程的未来是什么？关注不迷路，我们下期见！",
+          ],
+
+          precomputedSubtitles: superpowersSubtitles,
+          sceneDurations: [505, 409, 418, 349, 510, 497, 427],
         }}
       />
     </>

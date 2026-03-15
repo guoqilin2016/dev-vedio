@@ -1,0 +1,949 @@
+[
+  {
+    "words": [
+      {
+        "text": "AI编程",
+        "startFrame": 9,
+        "endFrame": 30
+      },
+      {
+        "text": "的范式转",
+        "startFrame": 30,
+        "endFrame": 51
+      },
+      {
+        "text": "移",
+        "startFrame": 51,
+        "endFrame": 56
+      },
+      {
+        "text": "！",
+        "startFrame": 56,
+        "endFrame": 58
+      },
+      {
+        "text": "Supe",
+        "startFrame": 58,
+        "endFrame": 79
+      },
+      {
+        "text": "rPow",
+        "startFrame": 79,
+        "endFrame": 100
+      },
+      {
+        "text": "ers已",
+        "startFrame": 100,
+        "endFrame": 121
+      },
+      {
+        "text": "经在Gi",
+        "startFrame": 121,
+        "endFrame": 142
+      },
+      {
+        "text": "tHub",
+        "startFrame": 142,
+        "endFrame": 163
+      },
+      {
+        "text": "狂揽84",
+        "startFrame": 163,
+        "endFrame": 184
+      },
+      {
+        "text": "000颗",
+        "startFrame": 184,
+        "endFrame": 205
+      },
+      {
+        "text": "Star",
+        "startFrame": 205,
+        "endFrame": 226
+      },
+      {
+        "text": "，",
+        "startFrame": 226,
+        "endFrame": 228
+      },
+      {
+        "text": "Fork",
+        "startFrame": 228,
+        "endFrame": 249
+      },
+      {
+        "text": "超过66",
+        "startFrame": 249,
+        "endFrame": 270
+      },
+      {
+        "text": "00次",
+        "startFrame": 270,
+        "endFrame": 286
+      },
+      {
+        "text": "，",
+        "startFrame": 286,
+        "endFrame": 288
+      },
+      {
+        "text": "还在飙升",
+        "startFrame": 288,
+        "endFrame": 309
+      },
+      {
+        "text": "中",
+        "startFrame": 309,
+        "endFrame": 314
+      },
+      {
+        "text": "！",
+        "startFrame": 314,
+        "endFrame": 316
+      },
+      {
+        "text": "一句话概",
+        "startFrame": 316,
+        "endFrame": 337
+      },
+      {
+        "text": "括",
+        "startFrame": 337,
+        "endFrame": 342
+      },
+      {
+        "text": "：",
+        "startFrame": 342,
+        "endFrame": 344
+      },
+      {
+        "text": "它给AI",
+        "startFrame": 344,
+        "endFrame": 365
+      },
+      {
+        "text": "编程助手",
+        "startFrame": 365,
+        "endFrame": 386
+      },
+      {
+        "text": "装上了一",
+        "startFrame": 386,
+        "endFrame": 407
+      },
+      {
+        "text": "整套真正",
+        "startFrame": 407,
+        "endFrame": 428
+      },
+      {
+        "text": "的软件工",
+        "startFrame": 428,
+        "endFrame": 449
+      },
+      {
+        "text": "程流程",
+        "startFrame": 449,
+        "endFrame": 465
+      },
+      {
+        "text": "！",
+        "startFrame": 465,
+        "endFrame": 467
+      }
+    ],
+    "startFrame": 9,
+    "endFrame": 484
+  },
+  {
+    "words": [
+      {
+        "text": "大多数A",
+        "startFrame": 514,
+        "endFrame": 538
+      },
+      {
+        "text": "I编程助",
+        "startFrame": 538,
+        "endFrame": 562
+      },
+      {
+        "text": "手是什么",
+        "startFrame": 562,
+        "endFrame": 586
+      },
+      {
+        "text": "逻辑",
+        "startFrame": 586,
+        "endFrame": 598
+      },
+      {
+        "text": "？",
+        "startFrame": 598,
+        "endFrame": 600
+      },
+      {
+        "text": "你说一句",
+        "startFrame": 600,
+        "endFrame": 624
+      },
+      {
+        "text": "需求",
+        "startFrame": 624,
+        "endFrame": 636
+      },
+      {
+        "text": "，",
+        "startFrame": 636,
+        "endFrame": 638
+      },
+      {
+        "text": "它直接开",
+        "startFrame": 638,
+        "endFrame": 662
+      },
+      {
+        "text": "始写代码",
+        "startFrame": 662,
+        "endFrame": 686
+      },
+      {
+        "text": "。",
+        "startFrame": 686,
+        "endFrame": 688
+      },
+      {
+        "text": "结果呢",
+        "startFrame": 688,
+        "endFrame": 706
+      },
+      {
+        "text": "？",
+        "startFrame": 706,
+        "endFrame": 708
+      },
+      {
+        "text": "代码能跑",
+        "startFrame": 708,
+        "endFrame": 732
+      },
+      {
+        "text": "，",
+        "startFrame": 732,
+        "endFrame": 734
+      },
+      {
+        "text": "但项目很",
+        "startFrame": 734,
+        "endFrame": 758
+      },
+      {
+        "text": "快乱成一",
+        "startFrame": 758,
+        "endFrame": 782
+      },
+      {
+        "text": "团",
+        "startFrame": 782,
+        "endFrame": 788
+      },
+      {
+        "text": "。",
+        "startFrame": 788,
+        "endFrame": 790
+      },
+      {
+        "text": "因为它根",
+        "startFrame": 790,
+        "endFrame": 814
+      },
+      {
+        "text": "本没有工",
+        "startFrame": 814,
+        "endFrame": 838
+      },
+      {
+        "text": "程思维",
+        "startFrame": 838,
+        "endFrame": 856
+      },
+      {
+        "text": "！",
+        "startFrame": 856,
+        "endFrame": 858
+      }
+    ],
+    "startFrame": 514,
+    "endFrame": 893
+  },
+  {
+    "words": [
+      {
+        "text": "Supe",
+        "startFrame": 923,
+        "endFrame": 948
+      },
+      {
+        "text": "rPow",
+        "startFrame": 948,
+        "endFrame": 973
+      },
+      {
+        "text": "ers做",
+        "startFrame": 973,
+        "endFrame": 998
+      },
+      {
+        "text": "了一件狠",
+        "startFrame": 998,
+        "endFrame": 1023
+      },
+      {
+        "text": "狠的事",
+        "startFrame": 1023,
+        "endFrame": 1042
+      },
+      {
+        "text": "！",
+        "startFrame": 1042,
+        "endFrame": 1044
+      },
+      {
+        "text": "强制AI",
+        "startFrame": 1044,
+        "endFrame": 1069
+      },
+      {
+        "text": "按照真正",
+        "startFrame": 1069,
+        "endFrame": 1094
+      },
+      {
+        "text": "的软件工",
+        "startFrame": 1094,
+        "endFrame": 1119
+      },
+      {
+        "text": "程军规来",
+        "startFrame": 1119,
+        "endFrame": 1144
+      },
+      {
+        "text": "工作",
+        "startFrame": 1144,
+        "endFrame": 1157
+      },
+      {
+        "text": "！",
+        "startFrame": 1157,
+        "endFrame": 1159
+      },
+      {
+        "text": "核心逻辑",
+        "startFrame": 1159,
+        "endFrame": 1184
+      },
+      {
+        "text": "极其优雅",
+        "startFrame": 1184,
+        "endFrame": 1209
+      },
+      {
+        "text": "：",
+        "startFrame": 1209,
+        "endFrame": 1211
+      },
+      {
+        "text": "7阶段强",
+        "startFrame": 1211,
+        "endFrame": 1236
+      },
+      {
+        "text": "制流水线",
+        "startFrame": 1236,
+        "endFrame": 1261
+      },
+      {
+        "text": "，",
+        "startFrame": 1261,
+        "endFrame": 1263
+      },
+      {
+        "text": "缺一不可",
+        "startFrame": 1263,
+        "endFrame": 1288
+      },
+      {
+        "text": "！",
+        "startFrame": 1288,
+        "endFrame": 1290
+      }
+    ],
+    "startFrame": 923,
+    "endFrame": 1311
+  },
+  {
+    "words": [
+      {
+        "text": "先用苏格",
+        "startFrame": 1341,
+        "endFrame": 1363
+      },
+      {
+        "text": "拉底式追",
+        "startFrame": 1363,
+        "endFrame": 1385
+      },
+      {
+        "text": "问逼你把",
+        "startFrame": 1385,
+        "endFrame": 1407
+      },
+      {
+        "text": "需求说清",
+        "startFrame": 1407,
+        "endFrame": 1429
+      },
+      {
+        "text": "楚",
+        "startFrame": 1429,
+        "endFrame": 1435
+      },
+      {
+        "text": "，",
+        "startFrame": 1435,
+        "endFrame": 1437
+      },
+      {
+        "text": "再自动生",
+        "startFrame": 1437,
+        "endFrame": 1459
+      },
+      {
+        "text": "成设计文",
+        "startFrame": 1459,
+        "endFrame": 1481
+      },
+      {
+        "text": "档",
+        "startFrame": 1481,
+        "endFrame": 1487
+      },
+      {
+        "text": "。",
+        "startFrame": 1487,
+        "endFrame": 1489
+      },
+      {
+        "text": "设计通过",
+        "startFrame": 1489,
+        "endFrame": 1511
+      },
+      {
+        "text": "后才开始",
+        "startFrame": 1511,
+        "endFrame": 1533
+      },
+      {
+        "text": "拆任务",
+        "startFrame": 1533,
+        "endFrame": 1550
+      },
+      {
+        "text": "，",
+        "startFrame": 1550,
+        "endFrame": 1552
+      },
+      {
+        "text": "每个任务",
+        "startFrame": 1552,
+        "endFrame": 1574
+      },
+      {
+        "text": "精确到文",
+        "startFrame": 1574,
+        "endFrame": 1596
+      },
+      {
+        "text": "件路径和",
+        "startFrame": 1596,
+        "endFrame": 1618
+      },
+      {
+        "text": "代码片段",
+        "startFrame": 1618,
+        "endFrame": 1640
+      },
+      {
+        "text": "！",
+        "startFrame": 1640,
+        "endFrame": 1642
+      }
+    ],
+    "startFrame": 1341,
+    "endFrame": 1660
+  },
+  {
+    "words": [
+      {
+        "text": "然后严格",
+        "startFrame": 1690,
+        "endFrame": 1713
+      },
+      {
+        "text": "执行TD",
+        "startFrame": 1713,
+        "endFrame": 1736
+      },
+      {
+        "text": "D红绿重",
+        "startFrame": 1736,
+        "endFrame": 1759
+      },
+      {
+        "text": "构",
+        "startFrame": 1759,
+        "endFrame": 1765
+      },
+      {
+        "text": "。",
+        "startFrame": 1765,
+        "endFrame": 1767
+      },
+      {
+        "text": "先写测试",
+        "startFrame": 1767,
+        "endFrame": 1790
+      },
+      {
+        "text": "，",
+        "startFrame": 1790,
+        "endFrame": 1792
+      },
+      {
+        "text": "看它失败",
+        "startFrame": 1792,
+        "endFrame": 1815
+      },
+      {
+        "text": "，",
+        "startFrame": 1815,
+        "endFrame": 1817
+      },
+      {
+        "text": "再写代码",
+        "startFrame": 1817,
+        "endFrame": 1840
+      },
+      {
+        "text": "，",
+        "startFrame": 1840,
+        "endFrame": 1842
+      },
+      {
+        "text": "看它通过",
+        "startFrame": 1842,
+        "endFrame": 1865
+      },
+      {
+        "text": "。",
+        "startFrame": 1865,
+        "endFrame": 1867
+      },
+      {
+        "text": "跳过测试",
+        "startFrame": 1867,
+        "endFrame": 1890
+      },
+      {
+        "text": "的代码直",
+        "startFrame": 1890,
+        "endFrame": 1913
+      },
+      {
+        "text": "接删掉重",
+        "startFrame": 1913,
+        "endFrame": 1936
+      },
+      {
+        "text": "来",
+        "startFrame": 1936,
+        "endFrame": 1942
+      },
+      {
+        "text": "！",
+        "startFrame": 1942,
+        "endFrame": 1944
+      },
+      {
+        "text": "每个任务",
+        "startFrame": 1944,
+        "endFrame": 1967
+      },
+      {
+        "text": "完成后触",
+        "startFrame": 1967,
+        "endFrame": 1990
+      },
+      {
+        "text": "发双阶段",
+        "startFrame": 1990,
+        "endFrame": 2013
+      },
+      {
+        "text": "代码审查",
+        "startFrame": 2013,
+        "endFrame": 2036
+      },
+      {
+        "text": "，",
+        "startFrame": 2036,
+        "endFrame": 2038
+      },
+      {
+        "text": "Crit",
+        "startFrame": 2038,
+        "endFrame": 2061
+      },
+      {
+        "text": "ical",
+        "startFrame": 2061,
+        "endFrame": 2084
+      },
+      {
+        "text": "问题不解",
+        "startFrame": 2084,
+        "endFrame": 2107
+      },
+      {
+        "text": "决不许前",
+        "startFrame": 2107,
+        "endFrame": 2130
+      },
+      {
+        "text": "进",
+        "startFrame": 2130,
+        "endFrame": 2136
+      },
+      {
+        "text": "！",
+        "startFrame": 2136,
+        "endFrame": 2138
+      }
+    ],
+    "startFrame": 1690,
+    "endFrame": 2170
+  },
+  {
+    "words": [
+      {
+        "text": "最后多A",
+        "startFrame": 2200,
+        "endFrame": 2220
+      },
+      {
+        "text": "gent",
+        "startFrame": 2220,
+        "endFrame": 2240
+      },
+      {
+        "text": "并行协作",
+        "startFrame": 2240,
+        "endFrame": 2260
+      },
+      {
+        "text": "，",
+        "startFrame": 2260,
+        "endFrame": 2262
+      },
+      {
+        "text": "主Age",
+        "startFrame": 2262,
+        "endFrame": 2282
+      },
+      {
+        "text": "nt调度",
+        "startFrame": 2282,
+        "endFrame": 2302
+      },
+      {
+        "text": "子Age",
+        "startFrame": 2302,
+        "endFrame": 2322
+      },
+      {
+        "text": "nt分头",
+        "startFrame": 2322,
+        "endFrame": 2342
+      },
+      {
+        "text": "执行",
+        "startFrame": 2342,
+        "endFrame": 2352
+      },
+      {
+        "text": "，",
+        "startFrame": 2352,
+        "endFrame": 2354
+      },
+      {
+        "text": "跑完自动",
+        "startFrame": 2354,
+        "endFrame": 2374
+      },
+      {
+        "text": "开PR",
+        "startFrame": 2374,
+        "endFrame": 2389
+      },
+      {
+        "text": "！",
+        "startFrame": 2389,
+        "endFrame": 2391
+      },
+      {
+        "text": "已支持C",
+        "startFrame": 2391,
+        "endFrame": 2411
+      },
+      {
+        "text": "laud",
+        "startFrame": 2411,
+        "endFrame": 2431
+      },
+      {
+        "text": "e",
+        "startFrame": 2431,
+        "endFrame": 2436
+      },
+      {
+        "text": "Code",
+        "startFrame": 2436,
+        "endFrame": 2456
+      },
+      {
+        "text": "、",
+        "startFrame": 2456,
+        "endFrame": 2458
+      },
+      {
+        "text": "Curs",
+        "startFrame": 2458,
+        "endFrame": 2478
+      },
+      {
+        "text": "or",
+        "startFrame": 2478,
+        "endFrame": 2488
+      },
+      {
+        "text": "、",
+        "startFrame": 2488,
+        "endFrame": 2490
+      },
+      {
+        "text": "Code",
+        "startFrame": 2490,
+        "endFrame": 2510
+      },
+      {
+        "text": "x",
+        "startFrame": 2510,
+        "endFrame": 2515
+      },
+      {
+        "text": "、",
+        "startFrame": 2515,
+        "endFrame": 2517
+      },
+      {
+        "text": "Gemi",
+        "startFrame": 2517,
+        "endFrame": 2537
+      },
+      {
+        "text": "ni",
+        "startFrame": 2537,
+        "endFrame": 2547
+      },
+      {
+        "text": "CLI全",
+        "startFrame": 2547,
+        "endFrame": 2567
+      },
+      {
+        "text": "平台",
+        "startFrame": 2567,
+        "endFrame": 2577
+      },
+      {
+        "text": "，",
+        "startFrame": 2577,
+        "endFrame": 2579
+      },
+      {
+        "text": "零配置安",
+        "startFrame": 2579,
+        "endFrame": 2599
+      },
+      {
+        "text": "装",
+        "startFrame": 2599,
+        "endFrame": 2604
+      },
+      {
+        "text": "，",
+        "startFrame": 2604,
+        "endFrame": 2606
+      },
+      {
+        "text": "技能自动",
+        "startFrame": 2606,
+        "endFrame": 2626
+      },
+      {
+        "text": "触发",
+        "startFrame": 2626,
+        "endFrame": 2636
+      },
+      {
+        "text": "！",
+        "startFrame": 2636,
+        "endFrame": 2638
+      }
+    ],
+    "startFrame": 2200,
+    "endFrame": 2667
+  },
+  {
+    "words": [
+      {
+        "text": "今天的A",
+        "startFrame": 2697,
+        "endFrame": 2720
+      },
+      {
+        "text": "I只是你",
+        "startFrame": 2720,
+        "endFrame": 2743
+      },
+      {
+        "text": "的副驾驶",
+        "startFrame": 2743,
+        "endFrame": 2766
+      },
+      {
+        "text": "，",
+        "startFrame": 2766,
+        "endFrame": 2768
+      },
+      {
+        "text": "Supe",
+        "startFrame": 2768,
+        "endFrame": 2791
+      },
+      {
+        "text": "rPow",
+        "startFrame": 2791,
+        "endFrame": 2814
+      },
+      {
+        "text": "ers要",
+        "startFrame": 2814,
+        "endFrame": 2837
+      },
+      {
+        "text": "让它成为",
+        "startFrame": 2837,
+        "endFrame": 2860
+      },
+      {
+        "text": "整个工程",
+        "startFrame": 2860,
+        "endFrame": 2883
+      },
+      {
+        "text": "团队",
+        "startFrame": 2883,
+        "endFrame": 2895
+      },
+      {
+        "text": "！",
+        "startFrame": 2895,
+        "endFrame": 2897
+      },
+      {
+        "text": "评论区告",
+        "startFrame": 2897,
+        "endFrame": 2920
+      },
+      {
+        "text": "诉我",
+        "startFrame": 2920,
+        "endFrame": 2932
+      },
+      {
+        "text": "，",
+        "startFrame": 2932,
+        "endFrame": 2934
+      },
+      {
+        "text": "你觉得A",
+        "startFrame": 2934,
+        "endFrame": 2957
+      },
+      {
+        "text": "I编程的",
+        "startFrame": 2957,
+        "endFrame": 2980
+      },
+      {
+        "text": "未来是什",
+        "startFrame": 2980,
+        "endFrame": 3003
+      },
+      {
+        "text": "么",
+        "startFrame": 3003,
+        "endFrame": 3009
+      },
+      {
+        "text": "？",
+        "startFrame": 3009,
+        "endFrame": 3011
+      },
+      {
+        "text": "关注不迷",
+        "startFrame": 3011,
+        "endFrame": 3034
+      },
+      {
+        "text": "路",
+        "startFrame": 3034,
+        "endFrame": 3040
+      },
+      {
+        "text": "，",
+        "startFrame": 3040,
+        "endFrame": 3042
+      },
+      {
+        "text": "我们下期",
+        "startFrame": 3042,
+        "endFrame": 3065
+      },
+      {
+        "text": "见",
+        "startFrame": 3065,
+        "endFrame": 3071
+      },
+      {
+        "text": "！",
+        "startFrame": 3071,
+        "endFrame": 3073
+      }
+    ],
+    "startFrame": 2697,
+    "endFrame": 3094
+  }
+]

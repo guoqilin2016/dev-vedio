@@ -4,3 +4,7 @@ export { TextPresentation } from "./TextPresentation";
 export { TextPresentationSchema, type TextPresentationProps } from "./TextPresentation/schema";
 export { OpenClawAI } from "./OpenClawAI";
 export { OpenClawAISchema, type OpenClawAIProps } from "./OpenClawAI/schema";
+export { ClawSkills } from "./ClawSkills";
+export { ClawSkillsSchema, type ClawSkillsProps } from "./ClawSkills/schema";
+export { SuperPowers } from "./SuperPowers";
+export { SuperPowersSchema, type SuperPowersProps } from "./SuperPowers/schema";

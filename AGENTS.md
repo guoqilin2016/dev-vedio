@@ -225,7 +225,89 @@ npm run render:<name>
 - **Precomputed subtitles are essential**: Dynamic subtitle generation without audio timing data produces inaccurate karaoke highlights. Always use `precomputedSubtitles` from the sync script.
 - **Zero external asset dependency is achievable**: All UI elements (terminals, browsers, dashboards, chat bubbles, progress bars) can be built with React + inline styles + emoji. No screenshots or external images needed.
 - **Keep animations simple but layered**: Combine fadeInUp + glitch + scanlines + HUD borders for "tech feel" without complex dependencies.
-- **Vertical video (9:16) layout tips**: Use larger font sizes (44-56px for titles), more vertical spacing, and full-width content areas. Subtitles need bigger fontSize (44px+) for mobile readability.
+
+### 7. 竖屏短视频 (9:16) 设计规范
+
+#### 布局规范
+- **分辨率**: 1080 x 1920
+- **内容安全区**: `top: 0, bottom: 500` — 所有核心内容必须在距底部 500px 以上
+- **字幕位置**: `bottom: 380` — 避开视频号/抖音底部标题、合集、操作栏
+- **内容与字幕间距**: 至少 120px
+- **内容居中**: 使用 flexbox (`justifyContent: "center"`) + 安全区容器
+- **安全区容器模板**: `position: absolute; top: 0; left: 0; right: 0; bottom: 500; display: flex; flexDirection: column; justifyContent: center; padding: 0 40px;`
+
+#### 字体大小规范 (1080px 宽度)
+| 元素类型 | 推荐字号 | 备注 |
+|---------|---------|------|
+| 场景主标题 | 56-66px | fontWeight: 900 |
+| 场景副标题 | 42-50px | fontWeight: 700 |
+| 内容正文 | 28-36px | fontWeight: 500-600 |
+| 卡片标题 | 30-42px | fontWeight: 800 |
+| 卡片描述 | 18-24px | color: #777-#999 |
+| 标签/Tag | 14-20px | letterSpacing: 3-10, 大写英文 |
+| 核心数字 | 56-110px | fontFamily: monospace, fontWeight: 900 |
+| CTA 金句 | 40-54px | 带发光 textShadow |
+| 字幕 | 44px | fontSize in subtitle config |
+| Hashtag | 20-24px | color: #444, letterSpacing: 4 |
+
+#### 封面 (第一帧) 规范
+- **第一帧必须是完整封面**，不能是黑屏或淡入中间状态
+- 核心元素（Logo、标题、关键数据）在 frame 0 时 opacity: 1, scale: 1
+- 使用 `coverPhase = frame < 3` 判断，覆盖动画初始状态
+- 数字类元素显示最终值（如 "84k+"），不要从 0 开始动画
+- 背景渐变/光效从 frame 0 就要可见
+- 动画效果（glitch、spring）从 frame 5-10 后再开始
+
+#### 颜色方案模板
+```
+深色科技风:
+  backgroundColor: "#070810"  // 深色背景
+  accentColor: "#8b5cf6"      // 主色（紫色）
+  highlightColor: "#06b6d4"   // 高亮（青色）
+  successColor: "#10b981"     // 成功（绿色）
+  dangerColor: "#ef4444"      // 危险/警告（红色）
+  secondaryColor: "#f97316"   // 次要强调（橙色）
+  goldColor: "#ffd700"        // 金色（评分/星级）
+
+暗色赛博风（OpenClawAI）:
+  backgroundColor: "#0a0a0f"
+  accentColor: "#00f0ff"
+  highlightColor: "#4d7cff"
+
+暖色科技风（ClawSkills）:
+  backgroundColor: "#0a0a12"
+  accentColor: "#ff6b35"
+  highlightColor: "#00e5ff"
+  goldColor: "#ffd700"
+```
+
+#### 场景设计模式
+- **7 场景结构**: Hook → 痛点 → 核心亮点 → 深入1 → 深入2 → 深入3 → CTA
+- **每个场景都有**: 顶部英文标签（letterSpacing: 8+）+ 中文大标题 + 内容区 + 底部金句/进度
+- **HUD 装饰**: 四角边框（border + opacity 动画）增强科技感
+- **背景层**: radial-gradient + 扫描线 repeating-linear-gradient
+- **进度条**: 右侧竖条 (width: 3, height: 100) 显示当前场景进度
+
+#### 动画规范
+- 标题入场: `fadeInUp(frame, fps, delay, distance=60)` + spring
+- 列表/卡片: `staggerDelay(index, 8-12)` 错峰入场
+- 数字: `numberCountUp(frame, fps, target, durationSec)` 递增
+- 强调: `pulseGlow(frame, fps, speed)` 脉冲发光
+- 科技感: `glitchOffset(frame, intensity)` + `scanLineOpacity`
+- 卡片: `cardSlideIn(frame, fps, delay)` 滑入 + 缩放
+- 管线: `pipelineNodeReveal` + `lineGrow` 节点依次展开
+
+#### 配音规范
+- 语音: `zh-CN-YunxiNeural`, rate: `+5%`
+- 停顿: 用 `...` 表示，生成前替换为 `，`
+- 每段文案: 10-16 秒为宜
+- 语速: 中等偏快，适合短视频节奏
+
+#### 平台适配注意事项
+- **视频号**: 底部约 350px 被标题、合集、操作栏占用
+- **抖音**: 底部约 300px 被信息栏占用
+- **小红书**: 底部约 280px 被信息栏占用
+- **安全做法**: 字幕 `bottom: 380`，内容底线 `bottom: 500`
 
 ## Composition catalog
 
@@ -235,6 +317,8 @@ npm run render:<name>
 | TextPresentation | 16:9 | ~52s | 豆包日活破亿 (6-scene presentation) |
 | NitrogenAI | 16:9 | ~89s | 英伟达Nitrogen AI (6-scene presentation) |
 | OpenClawAI | 9:16 | ~95s | AI工具短视频 (7-scene vertical short video) |
+| ClawSkills | 9:16 | ~106s | ClawHub TOP 20 神级Skill (7-scene vertical short video) |
+| SuperPowers | 9:16 | ~104s | SuperPowers AI编程范式转移 (7-scene vertical short video) |
 
 ## Notes for agents
 
