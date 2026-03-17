@@ -6,10 +6,10 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
-import { SuperPowersProps } from "../schema";
+import { PuaSkillProps } from "../schema";
 import { glitchOffset, fadeInUp, pulseGlow, numberCountUp } from "../animations";
 
-export const HookScene: React.FC<SuperPowersProps> = ({
+export const HookScene: React.FC<PuaSkillProps> = ({
   hookLine1,
   hookLine2,
   backgroundColor,
@@ -24,7 +24,6 @@ export const HookScene: React.FC<SuperPowersProps> = ({
 
   const glitch = glitchOffset(frame, 1.5);
   const glow = pulseGlow(frame, fps, 3);
-
   const coverPhase = frame < 3;
 
   const logoAnim = spring({
@@ -37,7 +36,7 @@ export const HookScene: React.FC<SuperPowersProps> = ({
 
   const statsStart = Math.round(fps * 1.8);
   const starCount = numberCountUp(frame, fps, githubStars / 1000, 1.8, statsStart);
-  const forkCount = numberCountUp(frame, fps, githubForks / 1000, 1.8, statsStart + 8);
+  const forkCount = numberCountUp(frame, fps, githubForks, 1.8, statsStart + 8);
   const statsAnim = fadeInUp(frame, fps, statsStart, 40);
 
   const borderPulse = spring({
@@ -117,7 +116,7 @@ export const HookScene: React.FC<SuperPowersProps> = ({
             filter: `drop-shadow(0 0 50px ${accentColor}aa)`,
           }}
         >
-          ⚡
+          😤
         </div>
 
         <div
@@ -131,7 +130,7 @@ export const HookScene: React.FC<SuperPowersProps> = ({
             textShadow: `0 0 30px ${accentColor}88`,
           }}
         >
-          SUPERPOWERS
+          PUA SKILL
         </div>
 
         <div
@@ -201,8 +200,8 @@ export const HookScene: React.FC<SuperPowersProps> = ({
           }}
         >
           {[
-            { value: coverPhase ? "84k+" : `${starCount}k+`, label: "Stars", icon: "⭐", color: "#fbbf24" },
-            { value: coverPhase ? "6.6k+" : `${(forkCount / 10).toFixed(1)}k+`, label: "Forks", icon: "🔱", color: highlightColor },
+            { value: coverPhase ? "7.4k+" : `${(starCount / 10).toFixed(1)}k+`, label: "Stars", icon: "⭐", color: "#fbbf24" },
+            { value: coverPhase ? "342" : `${forkCount}`, label: "Forks", icon: "🔱", color: highlightColor },
           ].map((stat, i) => (
             <div key={i} style={{ textAlign: "center" }}>
               <div style={{ fontSize: 40 }}>{stat.icon}</div>
@@ -222,6 +221,18 @@ export const HookScene: React.FC<SuperPowersProps> = ({
               </div>
             </div>
           ))}
+        </div>
+
+        <div
+          style={{
+            marginTop: 36,
+            fontSize: 20,
+            color: "#555",
+            letterSpacing: 4,
+            opacity: coverPhase ? 1 : fadeInUp(frame, fps, Math.round(fps * 2.5), 30).opacity,
+          }}
+        >
+          5天现象级 · github.com/tanweai/pua
         </div>
       </div>
     </AbsoluteFill>

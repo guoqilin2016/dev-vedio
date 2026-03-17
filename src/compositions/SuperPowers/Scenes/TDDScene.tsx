@@ -55,7 +55,7 @@ export const TDDScene: React.FC<SuperPowersProps> = ({
           top: 0,
           left: 0,
           right: 0,
-          bottom: 500,
+          bottom: 420,
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",

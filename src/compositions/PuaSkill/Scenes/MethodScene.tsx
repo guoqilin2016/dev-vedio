@@ -2,30 +2,35 @@ import React from "react";
 import {
   AbsoluteFill,
   interpolate,
+  spring,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
-import { SuperPowersProps } from "../schema";
-import { fadeInUp, pipelineNodeReveal, lineGrow, pulseGlow } from "../animations";
+import { PuaSkillProps } from "../schema";
+import { fadeInUp, fadeIn, pressureReveal, pulseGlow } from "../animations";
 
-export const PipelineScene: React.FC<SuperPowersProps> = ({
+export const MethodScene: React.FC<PuaSkillProps> = ({
   backgroundColor,
   textColor,
-  accentColor,
-  pipelineTitle,
-  pipelineSubtitle,
-  pipelineSteps,
+  methodColor,
+  methodSteps,
+  methodTitle,
+  methodSubtitle,
 }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
+  const { fps, durationInFrames } = useVideoConfig();
 
   const titleAnim = fadeInUp(frame, fps, 0, 60);
   const subtitleAnim = fadeInUp(frame, fps, 10, 40);
   const stepsStart = Math.round(fps * 1.2);
   const glow = pulseGlow(frame, fps, 2);
 
-  const nodeSize = 52;
-  const nodeGap = 12;
+  const sloganStart = Math.round(durationInFrames * 0.78);
+  const sloganAnim = spring({
+    frame: frame - sloganStart,
+    fps,
+    config: { damping: 10, stiffness: 100 },
+  });
 
   return (
     <AbsoluteFill
@@ -35,7 +40,7 @@ export const PipelineScene: React.FC<SuperPowersProps> = ({
         overflow: "hidden",
       }}
     >
-      <div style={{ position: "absolute", inset: 0, background: `radial-gradient(ellipse at 30% 50%, ${accentColor}0c 0%, transparent 50%)` }} />
+      <div style={{ position: "absolute", inset: 0, background: `radial-gradient(ellipse at 60% 40%, ${methodColor}0c 0%, transparent 50%)` }} />
 
       <div
         style={{
@@ -58,11 +63,11 @@ export const PipelineScene: React.FC<SuperPowersProps> = ({
             marginBottom: 12,
           }}
         >
-          <div style={{ fontSize: 20, color: accentColor, letterSpacing: 10, marginBottom: 14, fontWeight: 700 }}>
-            CORE ARCHITECTURE
+          <div style={{ fontSize: 20, color: methodColor, letterSpacing: 10, marginBottom: 14, fontWeight: 700 }}>
+            METHODOLOGY
           </div>
-          <div style={{ fontSize: 60, fontWeight: 900, color: textColor, textShadow: `0 0 40px ${accentColor}44` }}>
-            {pipelineTitle}
+          <div style={{ fontSize: 58, fontWeight: 900, color: textColor, textShadow: `0 0 40px ${methodColor}44` }}>
+            {methodTitle}
           </div>
         </div>
 
@@ -81,20 +86,18 @@ export const PipelineScene: React.FC<SuperPowersProps> = ({
               color: "#999",
               padding: "10px 30px",
               borderRadius: 20,
-              border: `1px solid ${accentColor}22`,
-              background: `${accentColor}08`,
+              border: `1px solid ${methodColor}22`,
+              background: `${methodColor}08`,
             }}
           >
-            {pipelineSubtitle}
+            {methodSubtitle}
           </div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-          {pipelineSteps.map((step, i) => {
-            const nodeAnim = pipelineNodeReveal(frame, fps, i, stepsStart);
-            const lineDelay = stepsStart + i * 10 + 6;
-            const line = i < pipelineSteps.length - 1 ? lineGrow(frame, fps, lineDelay) : 0;
-            const isActive = frame > stepsStart + i * 10 + 15;
+          {methodSteps.map((step, i) => {
+            const nodeAnim = pressureReveal(frame, fps, i, stepsStart);
+            const isActive = frame > stepsStart + i * 18 + 15;
 
             return (
               <React.Fragment key={i}>
@@ -104,14 +107,18 @@ export const PipelineScene: React.FC<SuperPowersProps> = ({
                     alignItems: "center",
                     gap: 18,
                     width: 920,
+                    padding: "16px 20px",
+                    borderRadius: 16,
+                    background: isActive ? `${step.color}10` : "transparent",
+                    border: isActive ? `1px solid ${step.color}22` : "1px solid transparent",
                     opacity: nodeAnim.opacity,
                     transform: `translateY(${nodeAnim.y}px) scale(${nodeAnim.scale})`,
                   }}
                 >
                   <div
                     style={{
-                      width: nodeSize,
-                      height: nodeSize,
+                      width: 56,
+                      height: 56,
                       borderRadius: 14,
                       background: isActive
                         ? `linear-gradient(135deg, ${step.color}44, ${step.color}22)`
@@ -120,7 +127,7 @@ export const PipelineScene: React.FC<SuperPowersProps> = ({
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      fontSize: 28,
+                      fontSize: 30,
                       flexShrink: 0,
                       boxShadow: isActive ? `0 0 20px ${step.color}33` : "none",
                     }}
@@ -128,31 +135,16 @@ export const PipelineScene: React.FC<SuperPowersProps> = ({
                     {step.icon}
                   </div>
                   <div style={{ flex: 1 }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                      <span
-                        style={{
-                          fontSize: 14,
-                          color: step.color,
-                          letterSpacing: 3,
-                          fontWeight: 700,
-                          padding: "3px 10px",
-                          borderRadius: 6,
-                          background: `${step.color}12`,
-                        }}
-                      >
-                        {step.tag}
-                      </span>
-                    </div>
-                    <div style={{ fontSize: 34, fontWeight: 800, color: textColor, marginTop: 2 }}>
+                    <div style={{ fontSize: 36, fontWeight: 800, color: textColor }}>
                       {step.name}
                     </div>
-                    <div style={{ fontSize: 20, color: "#777", marginTop: 1 }}>
+                    <div style={{ fontSize: 22, color: "#999", marginTop: 2 }}>
                       {step.desc}
                     </div>
                   </div>
                   <div
                     style={{
-                      fontSize: 24,
+                      fontSize: 22,
                       fontWeight: 900,
                       color: step.color,
                       fontFamily: "monospace",
@@ -163,21 +155,39 @@ export const PipelineScene: React.FC<SuperPowersProps> = ({
                   </div>
                 </div>
 
-                {i < pipelineSteps.length - 1 && (
+                {i < methodSteps.length - 1 && (
                   <div
                     style={{
                       width: 2,
-                      height: nodeGap,
-                      background: `linear-gradient(180deg, ${step.color}44, ${pipelineSteps[i + 1].color}44)`,
-                      opacity: line,
-                      alignSelf: "center",
-                      marginLeft: -434 + nodeSize / 2,
+                      height: 8,
+                      background: `linear-gradient(180deg, ${step.color}44, ${methodSteps[i + 1].color}44)`,
+                      opacity: fadeIn(frame, stepsStart + i * 18 + 10, 8),
                     }}
                   />
                 )}
               </React.Fragment>
             );
           })}
+        </div>
+
+        <div style={{ textAlign: "center", marginTop: 30 }}>
+          <div
+            style={{
+              display: "inline-block",
+              fontSize: 36,
+              fontWeight: 900,
+              color: methodColor,
+              opacity: interpolate(sloganAnim, [0, 1], [0, 1]),
+              transform: `scale(${interpolate(sloganAnim, [0, 1], [0.8, 1])})`,
+              textShadow: `0 0 30px ${methodColor}44`,
+              padding: "14px 36px",
+              borderRadius: 16,
+              border: `2px solid ${methodColor}44`,
+              background: `${methodColor}0a`,
+            }}
+          >
+            PUA让AI不敢放弃 · 方法论让AI有能力不放弃
+          </div>
         </div>
       </div>
     </AbsoluteFill>

@@ -6,10 +6,10 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
-import { SuperPowersProps } from "../schema";
-import { fadeInUp, fadeIn, pulseGlow, numberCountUp } from "../animations";
+import { PuaSkillProps } from "../schema";
+import { fadeInUp, fadeIn, pulseGlow, numberCountUp, cardSlideIn, staggerDelay } from "../animations";
 
-export const CTAScene: React.FC<SuperPowersProps> = ({
+export const CTAScene: React.FC<PuaSkillProps> = ({
   backgroundColor,
   accentColor,
   highlightColor,
@@ -18,6 +18,7 @@ export const CTAScene: React.FC<SuperPowersProps> = ({
   ctaContent,
   ctaSlogan,
   githubStars,
+  platforms,
 }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
@@ -37,10 +38,12 @@ export const CTAScene: React.FC<SuperPowersProps> = ({
     config: { damping: 10, stiffness: 100 },
   });
 
-  const contentStart = Math.round(durationInFrames * 0.4);
+  const platformStart = Math.round(fps * 3);
+
+  const contentStart = Math.round(durationInFrames * 0.45);
   const contentAnim = fadeInUp(frame, fps, contentStart, 50);
 
-  const sloganStart = Math.round(durationInFrames * 0.7);
+  const sloganStart = Math.round(durationInFrames * 0.72);
   const sloganAnim = spring({
     frame: frame - sloganStart,
     fps,
@@ -96,10 +99,10 @@ export const CTAScene: React.FC<SuperPowersProps> = ({
           padding: "0 40px",
         }}
       >
-        <div style={{ textAlign: "center", marginBottom: 50 }}>
+        <div style={{ textAlign: "center", marginBottom: 36 }}>
           <div
             style={{
-              fontSize: 110,
+              fontSize: 100,
               fontWeight: 900,
               color: accentColor,
               fontFamily: "monospace",
@@ -108,25 +111,25 @@ export const CTAScene: React.FC<SuperPowersProps> = ({
               textShadow: `0 0 60px ${accentColor}66`,
             }}
           >
-            {starCount}k+
+            {(starCount / 10).toFixed(1)}k+
           </div>
           <div
             style={{
-              fontSize: 24,
+              fontSize: 22,
               color: "#666",
-              marginTop: 8,
+              marginTop: 6,
               letterSpacing: 6,
               opacity: interpolate(line1Anim, [0, 1], [0, 1]),
             }}
           >
-            GITHUB STARS & COUNTING
+            GITHUB STARS · 5天现象级
           </div>
         </div>
 
-        <div style={{ textAlign: "center", marginBottom: 40 }}>
+        <div style={{ textAlign: "center", marginBottom: 24 }}>
           <div
             style={{
-              fontSize: 48,
+              fontSize: 46,
               fontWeight: 700,
               color: "#999",
               opacity: interpolate(line1Anim, [0, 1], [0, 1]),
@@ -137,10 +140,10 @@ export const CTAScene: React.FC<SuperPowersProps> = ({
           </div>
           <div
             style={{
-              fontSize: 54,
+              fontSize: 50,
               fontWeight: 900,
               color: highlightColor,
-              marginTop: 24,
+              marginTop: 18,
               opacity: interpolate(line2Anim, [0, 1], [0, 1]),
               transform: `scale(${interpolate(line2Anim, [0, 1], [0.8, 1])})`,
               textShadow: `0 0 50px ${highlightColor}44`,
@@ -151,10 +154,40 @@ export const CTAScene: React.FC<SuperPowersProps> = ({
           </div>
         </div>
 
+        <div style={{ marginBottom: 24 }}>
+          <div style={{ textAlign: "center", fontSize: 18, color: "#666", letterSpacing: 5, marginBottom: 12, opacity: fadeIn(frame, platformStart, 15) }}>
+            SUPPORTED PLATFORMS
+          </div>
+          <div style={{ display: "flex", justifyContent: "center", gap: 12, flexWrap: "wrap" }}>
+            {platforms.map((platform, i) => {
+              const anim = cardSlideIn(frame, fps, platformStart + staggerDelay(i, 8));
+              return (
+                <div
+                  key={i}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 8,
+                    padding: "10px 18px",
+                    borderRadius: 12,
+                    border: `1px solid ${platform.color}33`,
+                    background: `${platform.color}08`,
+                    opacity: anim.opacity,
+                    transform: `translateX(${anim.x}px) scale(${anim.scale})`,
+                  }}
+                >
+                  <span style={{ fontSize: 22 }}>{platform.icon}</span>
+                  <span style={{ fontSize: 20, fontWeight: 700, color: platform.color }}>{platform.name}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
         <div
           style={{
             textAlign: "center",
-            marginBottom: 30,
+            marginBottom: 20,
             opacity: contentAnim.opacity,
             transform: `translateY(${contentAnim.y}px) scale(${pulseScale})`,
           }}
@@ -162,10 +195,10 @@ export const CTAScene: React.FC<SuperPowersProps> = ({
           <div
             style={{
               display: "inline-block",
-              fontSize: 36,
+              fontSize: 32,
               fontWeight: 700,
               color: highlightColor,
-              padding: "22px 40px",
+              padding: "18px 36px",
               borderRadius: 20,
               border: `2px solid ${highlightColor}44`,
               background: `${highlightColor}08`,
@@ -181,7 +214,7 @@ export const CTAScene: React.FC<SuperPowersProps> = ({
             display: "inline-flex",
             alignItems: "center",
             gap: 14,
-            fontSize: 44,
+            fontSize: 40,
             fontWeight: 900,
             color: accentColor,
             opacity: interpolate(sloganAnim, [0, 1], [0, 1]),
@@ -190,19 +223,19 @@ export const CTAScene: React.FC<SuperPowersProps> = ({
             textShadow: `0 0 50px ${accentColor}66`,
           }}
         >
-          ⚡ {ctaSlogan}
+          😤 {ctaSlogan}
         </div>
 
         <div
           style={{
-            marginTop: 16,
-            fontSize: 22,
+            marginTop: 14,
+            fontSize: 20,
             color: "#444",
             letterSpacing: 4,
             opacity: fadeIn(frame, sloganStart + 10, 15),
           }}
         >
-          #AI编程 #Cursor #SuperPowers
+          #PUA #AI编程 #ClaudeCode #Cursor
         </div>
       </div>
     </AbsoluteFill>

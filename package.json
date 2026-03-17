@@ -25,6 +25,9 @@
     "generate:voiceover:superpowers": "tsx scripts/generate-voiceover-superpowers.ts",
     "sync:subtitle:superpowers": "tsx scripts/sync-subtitle-superpowers.ts",
     "render:superpowers": "remotion render src/index.ts SuperPowers --output=out/SuperPowers.mp4",
+    "generate:voiceover:puaskill": "tsx scripts/generate-voiceover-puaskill.ts",
+    "sync:subtitle:puaskill": "tsx scripts/sync-subtitle-puaskill.ts",
+    "render:puaskill": "remotion render src/index.ts PuaSkill --output=out/PuaSkill.mp4",
     "typecheck": "tsc --noEmit"
   },
   "repository": {

@@ -230,11 +230,11 @@ npm run render:<name>
 
 #### 布局规范
 - **分辨率**: 1080 x 1920
-- **内容安全区**: `top: 0, bottom: 500` — 所有核心内容必须在距底部 500px 以上
+- **内容安全区**: `top: 0, bottom: 420` — 所有核心内容必须在距底部 420px 以上
 - **字幕位置**: `bottom: 380` — 避开视频号/抖音底部标题、合集、操作栏
-- **内容与字幕间距**: 至少 120px
+- **内容与字幕间距**: 字幕为单行显示，内容安全区底部与字幕顶部间距约 40px
 - **内容居中**: 使用 flexbox (`justifyContent: "center"`) + 安全区容器
-- **安全区容器模板**: `position: absolute; top: 0; left: 0; right: 0; bottom: 500; display: flex; flexDirection: column; justifyContent: center; padding: 0 40px;`
+- **安全区容器模板**: `position: absolute; top: 0; left: 0; right: 0; bottom: 420; display: flex; flexDirection: column; justifyContent: center; padding: 0 40px;`
 
 #### 字体大小规范 (1080px 宽度)
 | 元素类型 | 推荐字号 | 备注 |
@@ -303,11 +303,50 @@ npm run render:<name>
 - 每段文案: 10-16 秒为宜
 - 语速: 中等偏快，适合短视频节奏
 
+#### 字幕规范
+
+组件: `src/components/KaraokeSubtitle.tsx`
+
+**数据结构**（时间单位为帧，fps=30）:
+```ts
+interface SubtitleWord { text: string; startFrame: number; endFrame: number; }
+interface SubtitleLine { words: SubtitleWord[]; startFrame: number; endFrame: number; }
+```
+
+**显示规则**:
+- **按标点断句**: 每屏只显示一个标点符号之间的内容（`，。！？、：；` 等作为分隔符）
+- **不显示标点符号**: 标点字符从渲染中过滤掉，不出现在画面上
+- **文字无间距**: `gap: 0`，中文字符紧密排列，不留空格
+- **单行切换动画**: 句子切换时有 `spring` 驱动的 fade-in + 上移 8px 动画
+- **卡拉OK高亮**: 当前播放的词逐字填充高亮（`clipPath` 从左到右），播放中的词有 `scale(1.1)` 缩放和发光 `textShadow`
+
+**配置参数** (`SubtitleConfigSchema`):
+| 参数 | 默认值 | 说明 |
+|------|--------|------|
+| `enabled` | `true` | 是否显示字幕 |
+| `fontSize` | `44` | 字幕字号 |
+| `position` | `"bottom"` | 位置（top/center/bottom） |
+| `highlightColor` | `"#8b5cf6"` | 高亮颜色 |
+| `textColor` | `"#ffffff"` | 普通文字颜色 |
+| `backgroundColor` | `"rgba(7, 8, 16, 0.85)"` | 背景遮罩颜色 |
+
+**数据优先级**:
+1. `precomputedSubtitles`（来自同步脚本，帧级精确）— **始终优先使用**
+2. `voiceoverScripts` 动态生成（不精确，仅作 fallback）
+
+**同步脚本分词规则** (`scripts/sync-subtitle-<name>.ts`):
+- 每 4 个字符切一个 word
+- 中文标点单独成 word，占 2 帧
+- 每个 word 时长 = `(字符数 / 总字符数) * 场景音频帧数`，最小 2 帧
+- 场景字幕起始 = 场景起始帧 + 9 帧延迟
+
+**重要**: 不要使用 CSS transition/animation，所有动画必须用 Remotion 的 `spring()` 和 `interpolate()` 实现。
+
 #### 平台适配注意事项
 - **视频号**: 底部约 350px 被标题、合集、操作栏占用
 - **抖音**: 底部约 300px 被信息栏占用
 - **小红书**: 底部约 280px 被信息栏占用
-- **安全做法**: 字幕 `bottom: 380`，内容底线 `bottom: 500`
+- **安全做法**: 字幕 `bottom: 380`，内容底线 `bottom: 420`
 
 ## Composition catalog
 

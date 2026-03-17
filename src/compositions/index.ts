@@ -8,3 +8,5 @@ export { ClawSkills } from "./ClawSkills";
 export { ClawSkillsSchema, type ClawSkillsProps } from "./ClawSkills/schema";
 export { SuperPowers } from "./SuperPowers";
 export { SuperPowersSchema, type SuperPowersProps } from "./SuperPowers/schema";
+export { PuaSkill } from "./PuaSkill";
+export { PuaSkillSchema, type PuaSkillProps } from "./PuaSkill/schema";

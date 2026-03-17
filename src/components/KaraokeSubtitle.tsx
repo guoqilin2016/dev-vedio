@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 
 export interface SubtitleWord {
@@ -21,6 +21,32 @@ interface KaraokeSubtitleProps {
   backgroundColor?: string;
   position?: "top" | "center" | "bottom";
   style?: React.CSSProperties;
+}
+
+const PUNCTUATION_REGEX = /^[，。！？、：；""''（）!?,.:;…]+$/;
+
+function groupWordsIntoVisualLines(
+  words: SubtitleWord[],
+): SubtitleWord[][] {
+  const visualLines: SubtitleWord[][] = [];
+  let currentLine: SubtitleWord[] = [];
+
+  for (const word of words) {
+    if (PUNCTUATION_REGEX.test(word.text.trim())) {
+      if (currentLine.length > 0) {
+        visualLines.push(currentLine);
+        currentLine = [];
+      }
+    } else {
+      currentLine.push(word);
+    }
+  }
+
+  if (currentLine.length > 0) {
+    visualLines.push(currentLine);
+  }
+
+  return visualLines;
 }
 
 // 单个词的组件，用于计算独立的 spring 动画
@@ -122,17 +148,37 @@ export const KaraokeSubtitle: React.FC<KaraokeSubtitleProps> = ({
   style,
 }) => {
   const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
 
-  // 找到当前应该显示的字幕行
   const currentLine = lines.find(
     (line) => frame >= line.startFrame && frame <= line.endFrame
   );
 
-  if (!currentLine) {
+  const visualLines = useMemo(
+    () => currentLine ? groupWordsIntoVisualLines(currentLine.words) : [],
+    [currentLine?.startFrame, currentLine?.words]
+  );
+
+  if (!currentLine || visualLines.length === 0) {
     return null;
   }
 
-  // 计算位置
+  let activeIndex = 0;
+  for (let i = 0; i < visualLines.length; i++) {
+    if (frame >= visualLines[i][0].startFrame) {
+      activeIndex = i;
+    }
+  }
+
+  const activeWords = visualLines[activeIndex];
+  const lineStartFrame = activeWords[0].startFrame;
+
+  const fadeIn = spring({
+    frame: frame - lineStartFrame,
+    fps,
+    config: { damping: 20, stiffness: 200 },
+  });
+
   const positionStyle: React.CSSProperties = {
     top: position === "top" ? 80 : position === "center" ? "50%" : undefined,
     bottom: position === "bottom" ? 80 : undefined,
@@ -162,13 +208,15 @@ export const KaraokeSubtitle: React.FC<KaraokeSubtitleProps> = ({
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "center",
-          gap: 8,
+          gap: 0,
           maxWidth: "90%",
+          opacity: fadeIn,
+          transform: `translateY(${interpolate(fadeIn, [0, 1], [8, 0])}px)`,
         }}
       >
-        {currentLine.words.map((word, index) => (
+        {activeWords.map((word, index) => (
           <KaraokeWord
-            key={index}
+            key={`${activeIndex}-${index}`}
             word={word}
             fontSize={fontSize}
             textColor={textColor}

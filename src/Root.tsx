@@ -11,12 +11,15 @@ import {
   ClawSkillsSchema,
   SuperPowers,
   SuperPowersSchema,
+  PuaSkill,
+  PuaSkillSchema,
 } from "./compositions";
 import { DEFAULT_VIDEO_CONFIG } from "./shared/types";
 import nitrogenSubtitles from "./data/nitrogen-subtitles.json";
 import openclawSubtitles from "./data/openclaw-subtitles.json";
 import clawskillsSubtitles from "./data/clawskills-subtitles.json";
 import superpowersSubtitles from "./data/superpowers-subtitles.json";
+import puaskillSubtitles from "./data/puaskill-subtitles.json";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -573,6 +576,128 @@ export const RemotionRoot: React.FC = () => {
 
           precomputedSubtitles: superpowersSubtitles,
           sceneDurations: [505, 409, 418, 349, 510, 497, 427],
+        }}
+      />
+      {/* 竖屏短视频：PUA Skill 防AI摆烂神器 */}
+      <Composition
+        id="PuaSkill"
+        component={PuaSkill}
+        durationInFrames={3777}
+        fps={30}
+        width={1080}
+        height={1920}
+        schema={PuaSkillSchema}
+        defaultProps={{
+          hookLine1: "你的AI还在中途放弃？",
+          hookLine2: "这个Skill让AI不敢摆烂",
+          hookStyle: "glitch",
+          githubStars: 7400,
+          githubForks: 342,
+
+          lazyPatterns: [
+            { name: "暴力重试", behavior: "同一命令跑3遍，然后说「我解不了」", icon: "🔁" },
+            { name: "甩锅用户", behavior: "「建议你手动处理」「可能是环境问题」", icon: "🫵" },
+            { name: "工具闲置", behavior: "有搜索不搜，有文件不读，有终端不跑", icon: "🛋️" },
+            { name: "原地打转", behavior: "反复微调同一行代码，本质在画圈", icon: "🔄" },
+            { name: "被动等待", behavior: "修完表面就停，不验证不扩展不主动", icon: "😴" },
+          ],
+          lazyQuote: "AI摆烂的5种姿势，你的AI中了几个？",
+
+          ironRules: [
+            { number: "01", title: "穷尽一切方案", desc: "用完所有方法才允许说「我解不了」", icon: "💪", color: "#ef4444" },
+            { number: "02", title: "先行动再提问", desc: "先用工具，提问必须带诊断结果", icon: "⚡", color: "#f97316" },
+            { number: "03", title: "主动出击", desc: "端到端交付，P8不是NPC", icon: "🎯", color: "#fbbf24" },
+          ],
+          ironRulesTitle: "三大铁律",
+          ironRulesSubtitle: "强制AI不准放弃",
+
+          pressureLevels: [
+            { level: "L1", label: "轻度失望", rhetoric: "这个bug都解不了，绩效怎么打？", action: "切换全新方案", color: "#fbbf24" },
+            { level: "L2", label: "灵魂拷问", rhetoric: "底层逻辑呢？顶层设计呢？", action: "搜索+读源码", color: "#f97316" },
+            { level: "L3", label: "绩效面谈", rhetoric: "慎重考虑后，给你打 3.25", action: "执行7点检查清单", color: "#ef4444" },
+            { level: "L4", label: "毕业警告", rhetoric: "其他模型都能解，你要毕业了", action: "绝境模式全开", color: "#dc2626" },
+          ],
+          pressureTitle: "4级PUA压力升级",
+
+          methodSteps: [
+            { name: "闻味道", desc: "列出所有尝试，找共性失败模式", icon: "👃", color: "#a78bfa" },
+            { name: "拔高", desc: "逐字读报错 → 搜索 → 读源码 → 反转假设", icon: "🔭", color: "#8b5cf6" },
+            { name: "照镜子", desc: "在重复吗？搜了吗？读文件了吗？", icon: "🪞", color: "#06b6d4" },
+            { name: "执行", desc: "新方案必须本质不同，有验证标准", icon: "🚀", color: "#10b981" },
+            { name: "复盘", desc: "什么解决了？为什么没早想到？", icon: "📝", color: "#22c55e" },
+          ],
+          methodTitle: "5步调试方法论",
+          methodSubtitle: "源自阿里管理体系",
+
+          benchmarkStats: [
+            { label: "修复次数", value: 36, suffix: "%", color: "#10b981" },
+            { label: "主动验证", value: 65, suffix: "%", color: "#06b6d4" },
+            { label: "工具调用", value: 50, suffix: "%", color: "#8b5cf6" },
+            { label: "隐藏问题", value: 50, suffix: "%", color: "#f97316" },
+          ],
+          benchmarkTitle: "实测数据",
+          benchmarkSubtitle: "9个真实bug场景 · 18组对照实验",
+
+          platforms: [
+            { name: "Claude Code", icon: "🟠", color: "#f97316" },
+            { name: "Cursor", icon: "⚡", color: "#8b5cf6" },
+            { name: "Codex CLI", icon: "🟢", color: "#10b981" },
+            { name: "Kiro", icon: "🔵", color: "#3b82f6" },
+            { name: "OpenClaw", icon: "🦀", color: "#ef4444" },
+          ],
+
+          ctaLine1: "担心你的AI在工作时摸鱼？",
+          ctaLine2: "PUA Skill让它不敢放弃",
+          ctaContent: "评论区告诉我，你的AI最让你抓狂的摆烂行为是什么？",
+          ctaSlogan: "关注不迷路 · 我们下期见",
+
+          backgroundColor: "#0a0a0f",
+          textColor: "#ffffff",
+          accentColor: "#ef4444",
+          highlightColor: "#fbbf24",
+          secondaryColor: "#f97316",
+          successColor: "#10b981",
+          methodColor: "#8b5cf6",
+
+          subtitle: {
+            enabled: true,
+            fontSize: 44,
+            position: "bottom",
+            highlightColor: "#ef4444",
+            textColor: "#ffffff",
+            backgroundColor: "rgba(10, 10, 15, 0.85)",
+          },
+
+          audio: {
+            backgroundMusic: "music/background.mp3",
+            backgroundMusicVolume: 0.2,
+            voiceoverEnabled: true,
+            voiceoverVolume: 1.0,
+            voiceId: "zh-CN-YunxiNeural",
+            voiceRate: 1.05,
+            voiceoverAudioFiles: [
+              "audio/puaskill-scene1.mp3",
+              "audio/puaskill-scene2.mp3",
+              "audio/puaskill-scene3.mp3",
+              "audio/puaskill-scene4.mp3",
+              "audio/puaskill-scene5.mp3",
+              "audio/puaskill-scene6.mp3",
+              "audio/puaskill-scene7.mp3",
+            ],
+          },
+
+          voiceoverScripts: [
+            "你的AI还在关键时刻放弃？5天狂揽7000 Star！这个现象级Skill，用PUA话术让AI不敢摆烂，修复效率直接翻倍！",
+            "AI有5种经典摆烂模式：暴力重试同一个命令三遍就放弃，甩锅给用户说需要手动处理，有搜索工具却不用，反复改同一行代码原地打转，修完bug就停下来被动等待。你的AI中了几个？",
+            "PUA Skill做了一件狠事！三大铁律强制AI不准放弃！第一，穷尽一切方案才允许说不行。第二，先动手再提问，问问题必须带诊断结果。第三，主动出击端到端交付，P8不是NPC！",
+            "核心杀器：4级PUA压力升级！第二次失败，轻度失望，这个bug都解不了怎么给你打绩效。第三次，灵魂拷问，底层逻辑是什么。第四次，绩效面谈，给你打3.25。第五次，毕业警告，其他模型都能解，你要毕业了！",
+            "光有PUA还不够，还得给AI方法论！5步调试法源自阿里管理体系。闻味道找共性模式，拔高逐字读报错，照镜子检查是否遗漏，执行必须用全新方案，最后复盘并主动排查关联问题！",
+            "实测数据说话！9个真实bug场景，18组对照实验。开启PUA后，AI修复次数提升36%，主动验证提升65%，工具调用提升50%，隐藏问题发现提升50%！数据不会撒谎，PUA真的有效！",
+            "已支持Claude Code、Cursor、Codex、Kiro、OpenClaw等多平台！担心你的AI在工作时摸鱼？赶紧去试试！评论区告诉我，你的AI最让你抓狂的摆烂行为是什么？关注不迷路，我们下期见！",
+          ],
+
+          precomputedSubtitles: puaskillSubtitles,
+          sceneDurations: [400, 500, 542, 596, 529, 613, 597],
         }}
       />
     </>
