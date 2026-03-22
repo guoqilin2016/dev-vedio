@@ -41,7 +41,7 @@
     "render:gsd:cover": "remotion still src/index.ts GSDIntroCover --output=out/GSDIntro-cover.png",
     "generate:voiceover:wechatclawbot": "rm -rf /tmp/wechatclawbot-run && mkdir -p /tmp/wechatclawbot-run && ./node_modules/.bin/tsc scripts/generate-voiceover-wechatclawbot.ts --outDir /tmp/wechatclawbot-run --module commonjs --target ES2020 --esModuleInterop --skipLibCheck && NODE_PATH=$(pwd)/node_modules node /tmp/wechatclawbot-run/scripts/generate-voiceover-wechatclawbot.js",
     "sync:subtitle:wechatclawbot": "rm -rf /tmp/wechatclawbot-run && mkdir -p /tmp/wechatclawbot-run && ./node_modules/.bin/tsc scripts/sync-subtitle-wechatclawbot.ts --outDir /tmp/wechatclawbot-run --module commonjs --target ES2020 --esModuleInterop --skipLibCheck && NODE_PATH=$(pwd)/node_modules node /tmp/wechatclawbot-run/scripts/sync-subtitle-wechatclawbot.js",
-    "render:wechatclawbot": "remotion render src/index.ts WeChatClawBot --output=out/WeChatClawBot.mp4",
+    "render:wechatclawbot": "remotion render src/index.ts WeChatClawBot --timeout=180000 --output=out/WeChatClawBot.mp4",
     "render:wechatclawbot:cover": "remotion still src/index.ts WeChatClawBotCover --output=out/WeChatClawBot-cover.png",
     "typecheck": "tsc --noEmit"
   },
