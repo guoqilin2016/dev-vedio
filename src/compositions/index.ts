@@ -18,3 +18,9 @@ export { AutoResearchSchema, type AutoResearchProps } from "./AutoResearch/schem
 export { GSDIntro } from "./GSDIntro";
 export { GSDIntroCover } from "./GSDIntro/Cover";
 export { GSDIntroSchema, type GSDIntroProps } from "./GSDIntro/schema";
+export { WeChatClawBot } from "./WeChatClawBot";
+export { WeChatClawBotCover } from "./WeChatClawBot/Cover";
+export {
+  WeChatClawBotSchema,
+  type WeChatClawBotProps,
+} from "./WeChatClawBot/schema";

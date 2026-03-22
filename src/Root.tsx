@@ -21,6 +21,9 @@ import {
   GSDIntro,
   GSDIntroCover,
   GSDIntroSchema,
+  WeChatClawBot,
+  WeChatClawBotCover,
+  WeChatClawBotSchema,
 } from "./compositions";
 import { DEFAULT_VIDEO_CONFIG } from "./shared/types";
 import nitrogenSubtitles from "./data/nitrogen-subtitles.json";
@@ -31,6 +34,7 @@ import puaskillSubtitles from "./data/puaskill-subtitles.json";
 import agencyagentsSubtitles from "./data/agencyagents-subtitles.json";
 import autoresearchSubtitles from "./data/autoresearch-subtitles.json";
 import gsdSubtitles from "./data/gsd-subtitles.json";
+import wechatclawbotSubtitles from "./data/wechatclawbot-subtitles.json";
 
 const gsdIntroDefaultProps = GSDIntroSchema.parse({
   audio: {
@@ -60,6 +64,36 @@ const gsdIntroDefaultProps = GSDIntroSchema.parse({
   },
   sceneDurations: [627, 736, 639, 874, 731, 796, 549],
   precomputedSubtitles: gsdSubtitles,
+});
+
+const weChatClawBotDefaultProps = WeChatClawBotSchema.parse({
+  audio: {
+    backgroundMusic: "music/background.mp3",
+    backgroundMusicVolume: 0.18,
+    voiceoverEnabled: true,
+    voiceoverVolume: 1.0,
+    voiceId: "zh-CN-YunyangNeural",
+    voiceRate: 1.03,
+    voiceoverAudioFiles: [
+      "audio/wechatclawbot-scene1.mp3",
+      "audio/wechatclawbot-scene2.mp3",
+      "audio/wechatclawbot-scene3.mp3",
+      "audio/wechatclawbot-scene4.mp3",
+      "audio/wechatclawbot-scene5.mp3",
+      "audio/wechatclawbot-scene6.mp3",
+      "audio/wechatclawbot-scene7.mp3",
+    ],
+  },
+  subtitle: {
+    enabled: true,
+    fontSize: 44,
+    position: "bottom",
+    highlightColor: "#34d399",
+    textColor: "#ffffff",
+    backgroundColor: "rgba(8, 14, 12, 0.88)",
+  },
+  sceneDurations: [330, 390, 360, 360, 390, 360, 390],
+  precomputedSubtitles: wechatclawbotSubtitles,
 });
 
 export const RemotionRoot: React.FC = () => {
@@ -1014,6 +1048,17 @@ export const RemotionRoot: React.FC = () => {
         schema={GSDIntroSchema}
         defaultProps={gsdIntroDefaultProps}
       />
+      {/* 竖屏短视频：WeChat ClawBot */}
+      <Composition
+        id="WeChatClawBot"
+        component={WeChatClawBot}
+        durationInFrames={2580}
+        fps={30}
+        width={1080}
+        height={1920}
+        schema={WeChatClawBotSchema}
+        defaultProps={weChatClawBotDefaultProps}
+      />
       {/* GSDIntro 封面图 (微信视频号 3:4) */}
       <Still
         id="GSDIntroCover"
@@ -1025,6 +1070,21 @@ export const RemotionRoot: React.FC = () => {
           ...gsdIntroDefaultProps,
           subtitle: {
             ...gsdIntroDefaultProps.subtitle,
+            enabled: false,
+          },
+        }}
+      />
+      {/* WeChatClawBot 封面图 (微信视频号 3:4) */}
+      <Still
+        id="WeChatClawBotCover"
+        component={WeChatClawBotCover}
+        width={1080}
+        height={1440}
+        schema={WeChatClawBotSchema}
+        defaultProps={{
+          ...weChatClawBotDefaultProps,
+          subtitle: {
+            ...weChatClawBotDefaultProps.subtitle,
             enabled: false,
           },
         }}
