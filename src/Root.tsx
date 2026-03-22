@@ -92,7 +92,7 @@ const weChatClawBotDefaultProps = WeChatClawBotSchema.parse({
     textColor: "#ffffff",
     backgroundColor: "rgba(8, 14, 12, 0.88)",
   },
-  sceneDurations: [330, 390, 360, 360, 390, 360, 390],
+  sceneDurations: [639, 664, 547, 744, 603, 663, 546],
   precomputedSubtitles: wechatclawbotSubtitles,
 });
 
@@ -1052,7 +1052,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="WeChatClawBot"
         component={WeChatClawBot}
-        durationInFrames={2580}
+        durationInFrames={4406}
         fps={30}
         width={1080}
         height={1920}
