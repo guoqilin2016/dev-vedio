@@ -30,6 +30,7 @@ import superpowersSubtitles from "./data/superpowers-subtitles.json";
 import puaskillSubtitles from "./data/puaskill-subtitles.json";
 import agencyagentsSubtitles from "./data/agencyagents-subtitles.json";
 import autoresearchSubtitles from "./data/autoresearch-subtitles.json";
+import gsdSubtitles from "./data/gsd-subtitles.json";
 
 const gsdIntroDefaultProps = GSDIntroSchema.parse({
   audio: {
@@ -57,6 +58,8 @@ const gsdIntroDefaultProps = GSDIntroSchema.parse({
     textColor: "#ffffff",
     backgroundColor: "rgba(7, 10, 16, 0.85)",
   },
+  sceneDurations: [627, 736, 639, 874, 731, 796, 549],
+  precomputedSubtitles: gsdSubtitles,
 });
 
 export const RemotionRoot: React.FC = () => {
@@ -1004,7 +1007,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="GSDIntro"
         component={GSDIntro}
-        durationInFrames={3600}
+        durationInFrames={4952}
         fps={30}
         width={1080}
         height={1920}
