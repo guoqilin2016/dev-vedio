@@ -18,6 +18,9 @@ import {
   AutoResearch,
   AutoResearchCover,
   AutoResearchSchema,
+  GSDIntro,
+  GSDIntroCover,
+  GSDIntroSchema,
 } from "./compositions";
 import { DEFAULT_VIDEO_CONFIG } from "./shared/types";
 import nitrogenSubtitles from "./data/nitrogen-subtitles.json";
@@ -27,6 +30,34 @@ import superpowersSubtitles from "./data/superpowers-subtitles.json";
 import puaskillSubtitles from "./data/puaskill-subtitles.json";
 import agencyagentsSubtitles from "./data/agencyagents-subtitles.json";
 import autoresearchSubtitles from "./data/autoresearch-subtitles.json";
+
+const gsdIntroDefaultProps = GSDIntroSchema.parse({
+  audio: {
+    backgroundMusic: "music/background.mp3",
+    backgroundMusicVolume: 0.2,
+    voiceoverEnabled: true,
+    voiceoverVolume: 1.0,
+    voiceId: "zh-CN-YunyangNeural",
+    voiceRate: 1.03,
+    voiceoverAudioFiles: [
+      "audio/gsd-scene1.mp3",
+      "audio/gsd-scene2.mp3",
+      "audio/gsd-scene3.mp3",
+      "audio/gsd-scene4.mp3",
+      "audio/gsd-scene5.mp3",
+      "audio/gsd-scene6.mp3",
+      "audio/gsd-scene7.mp3",
+    ],
+  },
+  subtitle: {
+    enabled: true,
+    fontSize: 44,
+    position: "bottom",
+    highlightColor: "#10b981",
+    textColor: "#ffffff",
+    backgroundColor: "rgba(7, 10, 16, 0.85)",
+  },
+});
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -232,7 +263,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="OpenClawAI"
         component={OpenClawAI}
-        durationInFrames={2848}
+        durationInFrames={2759}
         fps={30}
         width={1080}
         height={1920}
@@ -335,14 +366,14 @@ export const RemotionRoot: React.FC = () => {
           ],
 
           precomputedSubtitles: openclawSubtitles,
-          sceneDurations: [300, 466, 431, 441, 369, 462, 379],
+          sceneDurations: [297, 466, 395, 430, 373, 443, 355],
         }}
       />
       {/* 竖屏短视频：ClawHub TOP 20 神级 Skill */}
       <Composition
         id="ClawSkills"
         component={ClawSkills}
-        durationInFrames={3166}
+        durationInFrames={3127}
         fps={30}
         width={1080}
         height={1920}
@@ -463,14 +494,14 @@ export const RemotionRoot: React.FC = () => {
           ],
 
           precomputedSubtitles: clawskillsSubtitles,
-          sceneDurations: [354, 430, 570, 471, 492, 497, 352],
+          sceneDurations: [306, 431, 557, 494, 491, 502, 346],
         }}
       />
       {/* 竖屏短视频：SuperPowers AI编程范式转移 */}
       <Composition
         id="SuperPowers"
         component={SuperPowers}
-        durationInFrames={3115}
+        durationInFrames={2976}
         fps={30}
         width={1080}
         height={1920}
@@ -582,14 +613,14 @@ export const RemotionRoot: React.FC = () => {
           ],
 
           precomputedSubtitles: superpowersSubtitles,
-          sceneDurations: [505, 409, 418, 349, 510, 497, 427],
+          sceneDurations: [493, 391, 389, 355, 504, 457, 387],
         }}
       />
       {/* 竖屏短视频：PUA Skill 防AI摆烂神器 */}
       <Composition
         id="PuaSkill"
         component={PuaSkill}
-        durationInFrames={3777}
+        durationInFrames={3660}
         fps={30}
         width={1080}
         height={1920}
@@ -704,14 +735,14 @@ export const RemotionRoot: React.FC = () => {
           ],
 
           precomputedSubtitles: puaskillSubtitles,
-          sceneDurations: [400, 500, 542, 596, 529, 613, 597],
+          sceneDurations: [369, 490, 538, 586, 526, 613, 538],
         }}
       />
       {/* 竖屏短视频：Agency Agents 147个Markdown Agent零成本AI团队 */}
       <Composition
         id="AgencyAgents"
         component={AgencyAgents}
-        durationInFrames={4164}
+        durationInFrames={4090}
         fps={30}
         width={1080}
         height={1920}
@@ -840,14 +871,14 @@ export const RemotionRoot: React.FC = () => {
           ],
 
           precomputedSubtitles: agencyagentsSubtitles,
-          sceneDurations: [412, 582, 658, 681, 548, 751, 532],
+          sceneDurations: [409, 526, 672, 685, 534, 757, 507],
         }}
       />
       {/* 竖屏短视频：AutoResearch Karpathy让AI自己搞科研 */}
       <Composition
         id="AutoResearch"
         component={AutoResearch}
-        durationInFrames={4006}
+        durationInFrames={4004}
         fps={30}
         width={1080}
         height={1920}
@@ -966,7 +997,33 @@ export const RemotionRoot: React.FC = () => {
           ],
 
           precomputedSubtitles: autoresearchSubtitles,
-          sceneDurations: [499, 522, 518, 676, 629, 603, 559],
+          sceneDurations: [468, 568, 540, 665, 623, 600, 540],
+        }}
+      />
+      {/* 竖屏短视频：GSD Get Shit Done */}
+      <Composition
+        id="GSDIntro"
+        component={GSDIntro}
+        durationInFrames={3600}
+        fps={30}
+        width={1080}
+        height={1920}
+        schema={GSDIntroSchema}
+        defaultProps={gsdIntroDefaultProps}
+      />
+      {/* GSDIntro 封面图 (微信视频号 3:4) */}
+      <Still
+        id="GSDIntroCover"
+        component={GSDIntroCover}
+        width={1080}
+        height={1440}
+        schema={GSDIntroSchema}
+        defaultProps={{
+          ...gsdIntroDefaultProps,
+          subtitle: {
+            ...gsdIntroDefaultProps.subtitle,
+            enabled: false,
+          },
         }}
       />
       {/* AutoResearch 封面图 (微信视频号 3:4) */}

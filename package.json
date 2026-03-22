@@ -35,6 +35,10 @@
     "sync:subtitle:autoresearch": "tsx scripts/sync-subtitle-autoresearch.ts",
     "render:autoresearch": "remotion render src/index.ts AutoResearch --output=out/AutoResearch.mp4",
     "render:autoresearch:cover": "remotion still src/index.ts AutoResearchCover --output=out/AutoResearch-cover.png",
+    "generate:voiceover:gsd": "npx tsx scripts/generate-voiceover-gsd.ts",
+    "sync:subtitle:gsd": "npx tsx scripts/sync-subtitle-gsd.ts",
+    "render:gsd": "remotion render src/index.ts GSDIntro --output=out/GSDIntro.mp4",
+    "render:gsd:cover": "remotion still src/index.ts GSDIntroCover --output=out/GSDIntro-cover.png",
     "typecheck": "tsc --noEmit"
   },
   "repository": {

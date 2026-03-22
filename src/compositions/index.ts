@@ -15,3 +15,6 @@ export { AgencyAgentsSchema, type AgencyAgentsProps } from "./AgencyAgents/schem
 export { AutoResearch } from "./AutoResearch";
 export { AutoResearchCover } from "./AutoResearch/Cover";
 export { AutoResearchSchema, type AutoResearchProps } from "./AutoResearch/schema";
+export { GSDIntro } from "./GSDIntro";
+export { GSDIntroCover } from "./GSDIntro/Cover";
+export { GSDIntroSchema, type GSDIntroProps } from "./GSDIntro/schema";
