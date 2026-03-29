@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { VideoBriefSchema, type VideoBrief } from "./video-brief";
+import { type PreflightIssue } from "./preflight-qa";
 import {
   SafeAreaProfileSchema,
   SubtitleModeSchema,
@@ -21,6 +22,7 @@ export interface RenderResponse {
   success: boolean;
   outputPath?: string;
   error?: string;
+  details?: PreflightIssue[];
   durationMs?: number;
 }
 

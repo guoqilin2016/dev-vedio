@@ -352,6 +352,26 @@ export const videoTemplateRegistry = [
       videoChannel: videoChannelProfile,
     },
   }),
+  createEntry({
+    compositionId: "FeishuCLI",
+    stillId: "FeishuCLICover",
+    templateType: "vertical-7-scene",
+    aspectRatio: "9:16",
+    safeAreaProfile: shortVideoSafeArea,
+    subtitleMode: "single-line-bottom",
+    supports: {
+      hookSlot: true,
+      coverSlot: true,
+      proofSlot: true,
+    },
+    output: {
+      video: "out/FeishuCLI.mp4",
+      cover: "out/FeishuCLI-cover.png",
+    },
+    platformProfiles: {
+      videoChannel: videoChannelProfile,
+    },
+  }),
 ] as const satisfies readonly VideoTemplateRegistryEntry[];
 
 export const listVideoTemplates = (): VideoTemplateRegistryEntry[] =>

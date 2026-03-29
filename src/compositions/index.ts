@@ -33,3 +33,6 @@ export {
   AIHarnessEngineerSchema,
   type AIHarnessEngineerProps,
 } from "./AIHarnessEngineer/schema";
+export { FeishuCLI } from "./FeishuCLI";
+export { FeishuCLICover } from "./FeishuCLI/Cover";
+export { FeishuCLISchema, type FeishuCLIProps } from "./FeishuCLI/schema";

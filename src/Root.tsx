@@ -30,6 +30,9 @@ import {
   AIHarnessEngineer,
   AIHarnessEngineerCover,
   AIHarnessEngineerSchema,
+  FeishuCLI,
+  FeishuCLICover,
+  FeishuCLISchema,
 } from "./compositions";
 import {
   videoCompositionCatalog,
@@ -48,6 +51,7 @@ import gsdSubtitles from "./data/gsd-subtitles.json";
 import wechatclawbotSubtitles from "./data/wechatclawbot-subtitles.json";
 import pencildevSubtitles from "./data/pencildev-subtitles.json";
 import aiHarnessEngineerSubtitles from "./data/aiharnessengineer-subtitles.json";
+import feishuCliSubtitles from "./data/feishucli-subtitles.json";
 
 assertRegistryCoverage(videoCompositionCatalog, videoStillCatalog);
 
@@ -169,6 +173,36 @@ const aiHarnessEngineerDefaultProps = AIHarnessEngineerSchema.parse({
   },
   sceneDurations: [391, 463, 462, 481, 599, 536, 423],
   precomputedSubtitles: aiHarnessEngineerSubtitles,
+});
+
+const feishuCliDefaultProps = FeishuCLISchema.parse({
+  audio: {
+    backgroundMusic: "music/background.mp3",
+    backgroundMusicVolume: 0.14,
+    voiceoverEnabled: true,
+    voiceoverVolume: 1.0,
+    voiceId: "zh-CN-YunyangNeural",
+    voiceRate: 1.03,
+    voiceoverAudioFiles: [
+      "audio/feishucli-scene1.mp3",
+      "audio/feishucli-scene2.mp3",
+      "audio/feishucli-scene3.mp3",
+      "audio/feishucli-scene4.mp3",
+      "audio/feishucli-scene5.mp3",
+      "audio/feishucli-scene6.mp3",
+      "audio/feishucli-scene7.mp3",
+    ],
+  },
+  subtitle: {
+    enabled: true,
+    fontSize: 44,
+    position: "bottom",
+    highlightColor: "#4de2ff",
+    textColor: "#ffffff",
+    backgroundColor: "rgba(7, 12, 26, 0.86)",
+  },
+  sceneDurations: [597, 597, 659, 625, 659, 769, 623],
+  precomputedSubtitles: feishuCliSubtitles,
 });
 
 export const RemotionRoot: React.FC = () => {
@@ -1187,6 +1221,19 @@ export const RemotionRoot: React.FC = () => {
           defaultProps={aiHarnessEngineerDefaultProps}
         />
       )}
+      {/* 竖屏短视频：Feishu CLI */}
+      {compositionIds.has("FeishuCLI") && (
+        <Composition
+          id="FeishuCLI"
+          component={FeishuCLI}
+          durationInFrames={4529}
+          fps={30}
+          width={1080}
+          height={1920}
+          schema={FeishuCLISchema}
+          defaultProps={feishuCliDefaultProps}
+        />
+      )}
       {/* GSDIntro 封面图 (微信视频号 3:4) */}
       {stillIds.has("GSDIntroCover") && (
         <Still
@@ -1250,6 +1297,23 @@ export const RemotionRoot: React.FC = () => {
             ...aiHarnessEngineerDefaultProps,
             subtitle: {
               ...aiHarnessEngineerDefaultProps.subtitle,
+              enabled: false,
+            },
+          }}
+        />
+      )}
+      {/* FeishuCLI 封面图 (微信视频号 3:4) */}
+      {stillIds.has("FeishuCLICover") && (
+        <Still
+          id="FeishuCLICover"
+          component={FeishuCLICover}
+          width={1080}
+          height={1440}
+          schema={FeishuCLISchema}
+          defaultProps={{
+            ...feishuCliDefaultProps,
+            subtitle: {
+              ...feishuCliDefaultProps.subtitle,
               enabled: false,
             },
           }}

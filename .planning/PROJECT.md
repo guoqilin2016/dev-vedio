@@ -22,10 +22,9 @@
 
 ### Active
 
-- [ ] 将现有竖屏短视频能力抽象为可复用模板，减少新增视频时复制 composition、scene 和动画文件的成本
-- [ ] 优先提升视频的前三秒吸引力，包括封面、16 字内标题、首屏钩子、视觉冲击和整体科技感
-- [ ] 为每条视频产出完整发布素材，包括成片、封面图、统一版视频标题和视频描述
-- [ ] 统一动画基础设施，收敛重复且不一致的 `animations.ts`，降低维护成本并提升视觉一致性
+- [x] 本次项目已手动收口，当前不再推进原 roadmap 中的后续 phase
+- [x] 已交付多条完整技术短视频样本，并验证“调研 → 文案 → 配音 → 字幕 → 渲染”的主链路可稳定运行
+- [x] 未完成的模板化与整包发布能力转为后续可重开事项，不再作为当前项目完成阻塞
 
 ### Out of Scope
 
@@ -54,9 +53,9 @@
 
 ## Current State
 
-- Phase 1 已完成：内容 brief、模板 registry 与 discoverability contract 已统一
-- 当前下一步是 Phase 2：把 voiceover、字幕、scene durations 和预渲染阻断检查收敛成 media manifest
-- 当前最明显的系统缺口已经从“入口漂移”转为“媒体时序没有单一真相源”
+- 主项目已于 2026-03-29 按请求手动标记为完成
+- Phase 1 与 Phase 2 已实际完成；Phase 3 与 Phase 4 以 administrative close 收口，不继续执行
+- 当前仓库保留为可继续迭代的视频生产底座，但不再视为本轮未完成项目
 
 ## Key Decisions
 
@@ -69,4 +68,4 @@
 | 以模板化和共享动画收敛现有 composition 分叉 | 这是让后续高频出片可持续的基础能力 | — Pending |
 
 ---
-*Last updated: 2026-03-29 after Phase 1 completion*
+*Last updated: 2026-03-29 after project closure*

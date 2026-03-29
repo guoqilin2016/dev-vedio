@@ -13,9 +13,9 @@
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: 内容事实契约与注册表** - 把 brief、模板登记和渲染发现入口收敛为单一真相。 (completed 2026-03-29)
-- [ ] **Phase 2: Media Manifest 与 QA 门禁** - 统一 voiceover、字幕、scene durations 与预渲染阻断检查。
-- [ ] **Phase 3: 模板运行时与 Hook 封面** - 抽出可复用的 7 场景竖屏模板、首屏 Hook、安全区和封面 still。
-- [ ] **Phase 4: 统一发布素材整包输出** - 从同一事实源一次生成成片、封面、标题、描述与 hashtags。
+- [x] **Phase 2: Media Manifest 与 QA 门禁** - 统一 voiceover、字幕、scene durations 与预渲染阻断检查。 (completed 2026-03-29)
+- [x] **Phase 3: 模板运行时与 Hook 封面** - 抽出可复用的 7 场景竖屏模板、首屏 Hook、安全区和封面 still。 (administratively closed 2026-03-29)
+- [x] **Phase 4: 统一发布素材整包输出** - 从同一事实源一次生成成片、封面、标题、描述与 hashtags。 (administratively closed 2026-03-29)
 
 ## Phase Details
 
@@ -46,8 +46,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 02-01: 构建 media manifest 生成链路并收敛 voiceover/subtitle/duration 元数据
-- [ ] 02-02: 增加 preflight QA、失败阻断和定位式报错
+- [x] 02-01: 构建 media manifest 生成链路并收敛 voiceover/subtitle/duration 元数据
+- [x] 02-02: 增加 preflight QA、失败阻断和定位式报错
 
 ### Phase 3: 模板运行时与 Hook 封面
 **Goal**: 创作者可以不复制整套 composition 目录，就用复用模板产出前三秒更抓人的 7 场景竖屏技术短视频和封面。
@@ -61,9 +61,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 03-01: 抽象 7 场景模板运行时、主题 token 和共享动画入口
-- [ ] 03-02: 实现首屏 hook 槽位、封面 still 和安全区约束
-- [ ] 03-03: 适配现有竖屏 composition 到模板层并保留 brownfield 兼容性
+- [x] 03-01: 抽象 7 场景模板运行时、主题 token 和共享动画入口（administratively closed）
+- [x] 03-02: 实现首屏 hook 槽位、封面 still 和安全区约束（administratively closed）
+- [x] 03-03: 适配现有竖屏 composition 到模板层并保留 brownfield 兼容性（administratively closed）
 
 ### Phase 4: 统一发布素材整包输出
 **Goal**: 创作者可以基于“模板 + brief”一次生成完整发布 package，并拿到与视频事实同源的包装素材。
@@ -77,8 +77,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 04-01: 实现 publishing composer 与统一标题/描述/hashtags 规则
-- [ ] 04-02: 接通 package orchestrator，输出成片、封面和文案 manifest
+- [x] 04-01: 实现 publishing composer 与统一标题/描述/hashtags 规则（administratively closed）
+- [x] 04-02: 接通 package orchestrator，输出成片、封面和文案 manifest（administratively closed）
 
 ## Progress
 
@@ -88,6 +88,10 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. 内容事实契约与注册表 | 3/3 | Complete   | 2026-03-29 |
-| 2. Media Manifest 与 QA 门禁 | 0/2 | Not started | - |
-| 3. 模板运行时与 Hook 封面 | 0/3 | Not started | - |
-| 4. 统一发布素材整包输出 | 0/2 | Not started | - |
+| 2. Media Manifest 与 QA 门禁 | 2/2 | Complete | 2026-03-29 |
+| 3. 模板运行时与 Hook 封面 | 3/3 | Closed | 2026-03-29 |
+| 4. 统一发布素材整包输出 | 2/2 | Closed | 2026-03-29 |
+
+## Closure Note
+
+本项目已于 2026-03-29 手动标记为完成。本次收口采用 administrative close 方式结束 Phase 3 与 Phase 4，表示主项目不再按原 roadmap 继续推进，而不是表示这两期范围已完整实现。

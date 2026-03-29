@@ -48,7 +48,10 @@ router.post("/", async (req: Request, res: Response) => {
     if (result.success) {
       res.json(result);
     } else {
-      res.status(500).json(result);
+      res.status(500).json({
+        ...result,
+        details: result.details,
+      });
     }
   } catch (error) {
     const errorMessage =

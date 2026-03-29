@@ -1,0 +1,81 @@
+{
+  "compositionId": "AIHarnessEngineer",
+  "stillId": "AIHarnessEngineerCover",
+  "sceneCount": 7,
+  "subtitleDataFile": "src/data/aiharnessengineer-subtitles.json",
+  "audioFiles": [
+    "audio/aiharnessengineer-scene1.mp3",
+    "audio/aiharnessengineer-scene2.mp3",
+    "audio/aiharnessengineer-scene3.mp3",
+    "audio/aiharnessengineer-scene4.mp3",
+    "audio/aiharnessengineer-scene5.mp3",
+    "audio/aiharnessengineer-scene6.mp3",
+    "audio/aiharnessengineer-scene7.mp3"
+  ],
+  "sceneDurations": [
+    391,
+    463,
+    462,
+    481,
+    599,
+    536,
+    423
+  ],
+  "totalDurationInFrames": 3355,
+  "scenes": [
+    {
+      "sceneIndex": 1,
+      "audioFile": "audio/aiharnessengineer-scene1.mp3",
+      "audioDurationSec": 12.024,
+      "audioDurationInFrames": 361,
+      "sceneDurationInFrames": 391
+    },
+    {
+      "sceneIndex": 2,
+      "audioFile": "audio/aiharnessengineer-scene2.mp3",
+      "audioDurationSec": 14.424,
+      "audioDurationInFrames": 433,
+      "sceneDurationInFrames": 463
+    },
+    {
+      "sceneIndex": 3,
+      "audioFile": "audio/aiharnessengineer-scene3.mp3",
+      "audioDurationSec": 14.4,
+      "audioDurationInFrames": 432,
+      "sceneDurationInFrames": 462
+    },
+    {
+      "sceneIndex": 4,
+      "audioFile": "audio/aiharnessengineer-scene4.mp3",
+      "audioDurationSec": 15.048,
+      "audioDurationInFrames": 451,
+      "sceneDurationInFrames": 481
+    },
+    {
+      "sceneIndex": 5,
+      "audioFile": "audio/aiharnessengineer-scene5.mp3",
+      "audioDurationSec": 18.96,
+      "audioDurationInFrames": 569,
+      "sceneDurationInFrames": 599
+    },
+    {
+      "sceneIndex": 6,
+      "audioFile": "audio/aiharnessengineer-scene6.mp3",
+      "audioDurationSec": 16.872,
+      "audioDurationInFrames": 506,
+      "sceneDurationInFrames": 536
+    },
+    {
+      "sceneIndex": 7,
+      "audioFile": "audio/aiharnessengineer-scene7.mp3",
+      "audioDurationSec": 13.104,
+      "audioDurationInFrames": 393,
+      "sceneDurationInFrames": 423
+    }
+  ],
+  "output": {
+    "video": "out/AIHarnessEngineer.mp4",
+    "cover": "out/AIHarnessEngineer-cover.png"
+  },
+  "generatedAt": "2026-03-29T01:04:57.173Z"
+}

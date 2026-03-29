@@ -1,0 +1,81 @@
+{
+  "compositionId": "FeishuCLI",
+  "stillId": "FeishuCLICover",
+  "sceneCount": 7,
+  "subtitleDataFile": "src/data/feishucli-subtitles.json",
+  "audioFiles": [
+    "audio/feishucli-scene1.mp3",
+    "audio/feishucli-scene2.mp3",
+    "audio/feishucli-scene3.mp3",
+    "audio/feishucli-scene4.mp3",
+    "audio/feishucli-scene5.mp3",
+    "audio/feishucli-scene6.mp3",
+    "audio/feishucli-scene7.mp3"
+  ],
+  "sceneDurations": [
+    597,
+    597,
+    659,
+    625,
+    659,
+    769,
+    623
+  ],
+  "totalDurationInFrames": 4529,
+  "scenes": [
+    {
+      "sceneIndex": 1,
+      "audioFile": "audio/feishucli-scene1.mp3",
+      "audioDurationSec": 18.912,
+      "audioDurationInFrames": 567,
+      "sceneDurationInFrames": 597
+    },
+    {
+      "sceneIndex": 2,
+      "audioFile": "audio/feishucli-scene2.mp3",
+      "audioDurationSec": 18.888,
+      "audioDurationInFrames": 567,
+      "sceneDurationInFrames": 597
+    },
+    {
+      "sceneIndex": 3,
+      "audioFile": "audio/feishucli-scene3.mp3",
+      "audioDurationSec": 20.952,
+      "audioDurationInFrames": 629,
+      "sceneDurationInFrames": 659
+    },
+    {
+      "sceneIndex": 4,
+      "audioFile": "audio/feishucli-scene4.mp3",
+      "audioDurationSec": 19.848,
+      "audioDurationInFrames": 595,
+      "sceneDurationInFrames": 625
+    },
+    {
+      "sceneIndex": 5,
+      "audioFile": "audio/feishucli-scene5.mp3",
+      "audioDurationSec": 20.952,
+      "audioDurationInFrames": 629,
+      "sceneDurationInFrames": 659
+    },
+    {
+      "sceneIndex": 6,
+      "audioFile": "audio/feishucli-scene6.mp3",
+      "audioDurationSec": 24.624,
+      "audioDurationInFrames": 739,
+      "sceneDurationInFrames": 769
+    },
+    {
+      "sceneIndex": 7,
+      "audioFile": "audio/feishucli-scene7.mp3",
+      "audioDurationSec": 19.776,
+      "audioDurationInFrames": 593,
+      "sceneDurationInFrames": 623
+    }
+  ],
+  "output": {
+    "video": "out/FeishuCLI.mp4",
+    "cover": "out/FeishuCLI-cover.png"
+  },
+  "generatedAt": "2026-03-29T01:32:27.955Z"
+}

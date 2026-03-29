@@ -19,9 +19,9 @@
 
 ### Media Sync & QA
 
-- [ ] **MEDIA-01**: 创作者可以通过统一命令生成 voiceover、字幕数据、scene durations 和总时长元数据
-- [ ] **MEDIA-02**: 在正式渲染前，系统会自动检查音频文件、字幕覆盖、scene durations 和总帧数是否一致
-- [ ] **MEDIA-03**: 当媒体数据不一致或缺失时，系统会明确阻止渲染并给出可定位的问题说明
+- [x] **MEDIA-01**: 创作者可以通过统一命令生成 voiceover、字幕数据、scene durations 和总时长元数据
+- [x] **MEDIA-02**: 在正式渲染前，系统会自动检查音频文件、字幕覆盖、scene durations 和总帧数是否一致
+- [x] **MEDIA-03**: 当媒体数据不一致或缺失时，系统会明确阻止渲染并给出可定位的问题说明
 
 ### Template & Hook
 
@@ -73,9 +73,9 @@
 | REG-01 | Phase 1 | Complete |
 | REG-02 | Phase 1 | Complete |
 | REG-03 | Phase 4 | Pending |
-| MEDIA-01 | Phase 2 | Pending |
-| MEDIA-02 | Phase 2 | Pending |
-| MEDIA-03 | Phase 2 | Pending |
+| MEDIA-01 | Phase 2 | Complete |
+| MEDIA-02 | Phase 2 | Complete |
+| MEDIA-03 | Phase 2 | Complete |
 | TEMP-01 | Phase 3 | Pending |
 | TEMP-02 | Phase 3 | Pending |
 | TEMP-03 | Phase 3 | Pending |
@@ -91,4 +91,4 @@
 
 ---
 *Requirements defined: 2026-03-22*
-*Last updated: 2026-03-29 after Phase 1 completion*
+*Last updated: 2026-03-29 after Phase 2 completion*

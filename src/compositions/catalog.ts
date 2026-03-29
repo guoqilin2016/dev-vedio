@@ -84,6 +84,7 @@ export const videoCompositionCatalog = [
   createCompositionCatalogEntry("WeChatClawBot", 1080, 1920, 30, 4406),
   createCompositionCatalogEntry("PencilDev", 1080, 1920, 30, 3376),
   createCompositionCatalogEntry("AIHarnessEngineer", 1080, 1920, 30, 3355),
+  createCompositionCatalogEntry("FeishuCLI", 1080, 1920, 30, 4529),
 ] as const;
 
 export const videoStillCatalog = [
@@ -96,6 +97,7 @@ export const videoStillCatalog = [
     1080,
     1440,
   ),
+  createStillCatalogEntry("FeishuCLICover", "FeishuCLI", 1080, 1440),
   createStillCatalogEntry("AutoResearchCover", "AutoResearch", 1080, 1440),
 ] as const;
 

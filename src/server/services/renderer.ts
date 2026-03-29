@@ -10,6 +10,10 @@ import {
   resolveRenderInput,
 } from "../../shared/render-contract";
 import {
+  runMediaPreflight,
+  summarizePreflightIssues,
+} from "../../shared/preflight-qa";
+import {
   type DiscoverableComposition,
   RenderRequest,
   RenderResponse,
@@ -77,6 +81,23 @@ export async function renderVideo(
   try {
     const serveUrl = await getBundleLocation();
     const resolvedRequest = resolveRenderInput(request);
+
+    if (resolvedRequest.registryEntry.subtitleMode !== "none") {
+      const preflightReport = runMediaPreflight({
+        compositionId: request.compositionId,
+      });
+
+      if (!preflightReport.ok) {
+        const issueSummary = summarizePreflightIssues(preflightReport.issues);
+        console.error(`❌ Preflight failed: ${issueSummary}`);
+        return {
+          success: false,
+          error: `Media preflight failed for ${request.compositionId}: ${issueSummary}`,
+          details: preflightReport.issues,
+          durationMs: Date.now() - startTime,
+        };
+      }
+    }
 
     // 选择 composition
     const composition = await selectComposition({
