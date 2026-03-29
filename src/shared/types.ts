@@ -69,7 +69,7 @@ export const DEFAULT_VIDEO_CONFIG: VideoConfig = {
 // Zod schema for validation
 export const RenderRequestSchema = z.object({
   compositionId: z.string().min(1),
-  inputProps: z.record(z.unknown()).default({}),
+  inputProps: z.record(z.string(), z.unknown()).default({}),
   brief: VideoBriefSchema.optional(),
   outputFileName: z.string().optional(),
 });

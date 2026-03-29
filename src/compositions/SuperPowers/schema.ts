@@ -106,8 +106,8 @@ export const SuperPowersSchema = z.object({
   successColor: z.string().default("#10b981"),
   dangerColor: z.string().default("#ef4444"),
 
-  subtitle: SubtitleConfigSchema.default({}),
-  audio: AudioConfigSchema.default({}),
+  subtitle: SubtitleConfigSchema.default(SubtitleConfigSchema.parse({})),
+  audio: AudioConfigSchema.default(AudioConfigSchema.parse({})),
 
   voiceoverScripts: z.array(z.string()).default([
     "AI编程的范式转移！SuperPowers已经在GitHub狂揽84000颗Star，Fork超过6600次，还在飙升中！一句话概括：它给AI编程助手装上了一整套真正的软件工程流程！",

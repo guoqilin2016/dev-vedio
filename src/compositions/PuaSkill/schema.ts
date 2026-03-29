@@ -133,8 +133,8 @@ export const PuaSkillSchema = z.object({
   successColor: z.string().default("#10b981"),
   methodColor: z.string().default("#8b5cf6"),
 
-  subtitle: SubtitleConfigSchema.default({}),
-  audio: AudioConfigSchema.default({}),
+  subtitle: SubtitleConfigSchema.default(SubtitleConfigSchema.parse({})),
+  audio: AudioConfigSchema.default(AudioConfigSchema.parse({})),
 
   voiceoverScripts: z.array(z.string()).default([]),
 

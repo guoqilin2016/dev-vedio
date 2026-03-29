@@ -163,8 +163,12 @@ export const WeChatClawBotSchema = z.object({
   successColor: z.string().default("#22c55e"),
   goldColor: z.string().default("#fbbf24"),
 
-  subtitle: WeChatClawBotSubtitleConfigSchema.default({}),
-  audio: WeChatClawBotAudioConfigSchema.default({}),
+  subtitle: WeChatClawBotSubtitleConfigSchema.default(
+    WeChatClawBotSubtitleConfigSchema.parse({}),
+  ),
+  audio: WeChatClawBotAudioConfigSchema.default(
+    WeChatClawBotAudioConfigSchema.parse({}),
+  ),
 
   voiceoverScripts: z.array(z.string()).default([
     "你以为微信还只是聊天工具吗？最新流出的 ClawBot 演示里，用户在微信发一句扫描 BSC 新币，Agent 就会开始扫链。再发一句帮我买入 BTC 100u，它还能先拉价格，再把下单信息整理回来。聊天框，正在变成 AI 的操作入口。",

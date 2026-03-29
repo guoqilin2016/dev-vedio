@@ -122,8 +122,8 @@ export const AutoResearchSchema = z.object({
   secondaryColor: z.string().default("#f59e0b"),
   warningColor: z.string().default("#ef4444"),
 
-  subtitle: SubtitleConfigSchema.default({}),
-  audio: AudioConfigSchema.default({}),
+  subtitle: SubtitleConfigSchema.default(SubtitleConfigSchema.parse({})),
+  audio: AudioConfigSchema.default(AudioConfigSchema.parse({})),
 
   voiceoverScripts: z.array(z.string()).default([]),
 

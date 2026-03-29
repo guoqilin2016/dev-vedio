@@ -83,7 +83,15 @@ export const TextPresentationSchema = z.object({
     afterLabel: z.string().default("After"),
     afterValue: z.string().default("1人×0.5天"),
     afterIcon: z.string().default("🚀"),
-  }).default({}),
+  }).default({
+    enabled: true,
+    beforeLabel: "Before",
+    beforeValue: "3人×3天",
+    beforeIcon: "😫",
+    afterLabel: "After",
+    afterValue: "1人×0.5天",
+    afterIcon: "🚀",
+  }),
   
   // 结尾号召
   // 核心口号（大标题）
@@ -100,10 +108,10 @@ export const TextPresentationSchema = z.object({
   highlightColor: z.string().default("#ffd700"),
   
   // 字幕配置
-  subtitle: SubtitleConfigSchema.default({}),
+  subtitle: SubtitleConfigSchema.default(SubtitleConfigSchema.parse({})),
   
   // 音频配置
-  audio: AudioConfigSchema.default({}),
+  audio: AudioConfigSchema.default(AudioConfigSchema.parse({})),
   
   // 各场景的配音文本（用于 TTS 生成和字幕显示）
   voiceoverScripts: z.array(z.string()).default([
@@ -142,7 +150,12 @@ export const TextPresentationSchema = z.object({
     scale: z.number().min(0.1).max(0.5).default(0.25),
     // 圆角（像素）
     borderRadius: z.number().default(20),
-  }).default({}),
+  }).default({
+    enabled: false,
+    position: "right",
+    scale: 0.25,
+    borderRadius: 20,
+  }),
 });
 
 export type TextPresentationProps = z.infer<typeof TextPresentationSchema>;

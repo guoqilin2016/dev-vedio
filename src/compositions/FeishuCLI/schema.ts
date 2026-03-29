@@ -158,8 +158,12 @@ export const FeishuCLISchema = z.object({
   warningColor: z.string().default("#f59e0b"),
   panelColor: z.string().default("rgba(13, 22, 42, 0.78)"),
 
-  subtitle: FeishuCLISubtitleConfigSchema.default({}),
-  audio: FeishuCLIAudioConfigSchema.default({}),
+  subtitle: FeishuCLISubtitleConfigSchema.default(
+    FeishuCLISubtitleConfigSchema.parse({}),
+  ),
+  audio: FeishuCLIAudioConfigSchema.default(
+    FeishuCLIAudioConfigSchema.parse({}),
+  ),
 
   voiceoverScripts: z.array(z.string()).length(7).default([
     "你以为 AI 还只是坐在聊天框里回答问题吗？... 现在它已经开始接管飞书里的真实工作了。写文档，查日程，建会议，整理多维表格，这些动作，已经可以通过飞书官方 OpenAPI MCP 和 CLI 接进本地 Agent 工作流。",

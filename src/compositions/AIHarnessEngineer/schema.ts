@@ -97,8 +97,12 @@ export const AIHarnessEngineerSchema = z.object({
   warningColor: z.string().default("#f59e0b"),
   panelColor: z.string().default("rgba(9, 17, 29, 0.78)"),
 
-  subtitle: AIHarnessEngineerSubtitleConfigSchema.default({}),
-  audio: AIHarnessEngineerAudioConfigSchema.default({}),
+  subtitle: AIHarnessEngineerSubtitleConfigSchema.default(
+    AIHarnessEngineerSubtitleConfigSchema.parse({}),
+  ),
+  audio: AIHarnessEngineerAudioConfigSchema.default(
+    AIHarnessEngineerAudioConfigSchema.parse({}),
+  ),
 
   voiceoverScripts: z.array(z.string()).default([
     "你以为 AI 时代最值钱的是提示词吗？... 但 2026 年开始冒头的，可能已经不是 Prompt Engineer。越来越值钱的，是能让代理稳定干活的人。",

@@ -169,8 +169,8 @@ export const PencilDevSchema = z.object({
   warningColor: z.string().default("#f59e0b"),
   panelColor: z.string().default("rgba(15, 23, 42, 0.82)"),
 
-  subtitle: SubtitleConfigSchema.default({}),
-  audio: AudioConfigSchema.default({}),
+  subtitle: SubtitleConfigSchema.default(SubtitleConfigSchema.parse({})),
+  audio: AudioConfigSchema.default(AudioConfigSchema.parse({})),
 
   voiceoverScripts: z.array(z.string()).default([
     "说出来你可能不信，我现在做设计，真的已经很久没打开 Figma、Photoshop、Illustrator 了。不是因为我不用设计了，而是因为 Pencil.dev 已经把这套工作流换掉了。",

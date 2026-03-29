@@ -78,25 +78,25 @@
   },
   "homepage": "https://github.com/guoqilin2016/dev-vedio#readme",
   "dependencies": {
-    "@remotion/bundler": "^4.0.435",
-    "@remotion/captions": "^4.0.435",
-    "@remotion/cli": "^4.0.435",
-    "@remotion/light-leaks": "^4.0.435",
-    "@remotion/renderer": "^4.0.435",
-    "@remotion/transitions": "^4.0.435",
+    "@remotion/bundler": "^4.0.441",
+    "@remotion/captions": "^4.0.441",
+    "@remotion/cli": "^4.0.441",
+    "@remotion/light-leaks": "^4.0.441",
+    "@remotion/renderer": "^4.0.441",
+    "@remotion/transitions": "^4.0.441",
     "express": "^5.2.1",
-    "music-metadata": "^11.11.1",
-    "remotion": "^4.0.435",
-    "youtube-transcript": "^1.2.1",
-    "zod": "^3.22.3"
+    "music-metadata": "^11.12.3",
+    "remotion": "^4.0.441",
+    "youtube-transcript": "^1.3.0",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
-    "@types/node": "^25.1.0",
-    "@types/react": "^19.2.10",
+    "@types/node": "^25.5.0",
+    "@types/react": "^19.2.14",
     "concurrently": "^9.2.1",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3",
-    "vitest": "^3.2.4"
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.2"
   }
 }

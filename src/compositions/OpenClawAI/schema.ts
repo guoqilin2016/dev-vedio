@@ -89,10 +89,10 @@ export const OpenClawAISchema = z.object({
   warningColor: z.string().default("#ff3366"),
 
   // ===== 字幕 =====
-  subtitle: SubtitleConfigSchema.default({}),
+  subtitle: SubtitleConfigSchema.default(SubtitleConfigSchema.parse({})),
 
   // ===== 音频 =====
-  audio: AudioConfigSchema.default({}),
+  audio: AudioConfigSchema.default(AudioConfigSchema.parse({})),
 
   // ===== 配音脚本 =====
   voiceoverScripts: z.array(z.string()).default([

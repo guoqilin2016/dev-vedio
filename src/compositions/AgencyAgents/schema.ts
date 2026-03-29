@@ -137,8 +137,8 @@ export const AgencyAgentsSchema = z.object({
   secondaryColor: z.string().default("#3b82f6"),
   warningColor: z.string().default("#f97316"),
 
-  subtitle: SubtitleConfigSchema.default({}),
-  audio: AudioConfigSchema.default({}),
+  subtitle: SubtitleConfigSchema.default(SubtitleConfigSchema.parse({})),
+  audio: AudioConfigSchema.default(AudioConfigSchema.parse({})),
 
   voiceoverScripts: z.array(z.string()).default([]),
 

@@ -121,8 +121,8 @@ export const GSDIntroSchema = z.object({
   goldColor: z.string().default("#fbbf24"),
   terminalGreen: z.string().default("#4ade80"),
 
-  subtitle: SubtitleConfigSchema.default({}),
-  audio: AudioConfigSchema.default({}),
+  subtitle: SubtitleConfigSchema.default(SubtitleConfigSchema.parse({})),
+  audio: AudioConfigSchema.default(AudioConfigSchema.parse({})),
 
   voiceoverScripts: z.array(z.string()).default([
     "你有没有发现，用AI写代码，前面写得特别好，但越到后面，越离谱？变量名乱取，需求忘一半，代码开始自己跟自己打架。这不是你的问题，这是AI的通病，叫Context Rot，上下文腐烂。今天介绍一个38000 Star的开源神器，专治这个病。",

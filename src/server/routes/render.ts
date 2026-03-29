@@ -21,7 +21,7 @@ router.post("/", async (req: Request, res: Response) => {
       res.status(400).json({
         success: false,
         error: "Invalid request parameters",
-        details: parseResult.error.errors,
+        details: parseResult.error.issues,
       });
       return;
     }

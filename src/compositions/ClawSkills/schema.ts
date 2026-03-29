@@ -44,7 +44,11 @@ export const ClawSkillsSchema = z.object({
     totalSkills: z.number().default(20),
     minScore: z.number().default(3.4),
     categories: z.number().default(4),
-  }).default({}),
+  }).default({
+    totalSkills: 20,
+    minScore: 3.4,
+    categories: 4,
+  }),
 
   categories: z.array(CategorySchema).default([
     {
@@ -111,8 +115,8 @@ export const ClawSkillsSchema = z.object({
   highlightColor: z.string().default("#00e5ff"),
   goldColor: z.string().default("#ffd700"),
 
-  subtitle: SubtitleConfigSchema.default({}),
-  audio: AudioConfigSchema.default({}),
+  subtitle: SubtitleConfigSchema.default(SubtitleConfigSchema.parse({})),
+  audio: AudioConfigSchema.default(AudioConfigSchema.parse({})),
 
   voiceoverScripts: z.array(z.string()).default([
     "你的AI还在帮你查天气、写周报？别人的AI已经能自动备份数据、扫描后门、24小时替你值班了！",
