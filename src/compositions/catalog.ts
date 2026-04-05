@@ -85,6 +85,8 @@ export const videoCompositionCatalog = [
   createCompositionCatalogEntry("PencilDev", 1080, 1920, 30, 3376),
   createCompositionCatalogEntry("AIHarnessEngineer", 1080, 1920, 30, 3355),
   createCompositionCatalogEntry("FeishuCLI", 1080, 1920, 30, 4529),
+  createCompositionCatalogEntry("CodexECC", 1080, 1920, 30, 3220),
+  createCompositionCatalogEntry("AIHedgeFund", 1080, 1920, 30, 3212),
 ] as const;
 
 export const videoStillCatalog = [
@@ -99,6 +101,8 @@ export const videoStillCatalog = [
   ),
   createStillCatalogEntry("FeishuCLICover", "FeishuCLI", 1080, 1440),
   createStillCatalogEntry("AutoResearchCover", "AutoResearch", 1080, 1440),
+  createStillCatalogEntry("CodexECCCover", "CodexECC", 1080, 1440),
+  createStillCatalogEntry("AIHedgeFundCover", "AIHedgeFund", 1080, 1440),
 ] as const;
 
 export const getCompositionCatalogEntry = (

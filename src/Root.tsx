@@ -33,8 +33,15 @@ import {
   FeishuCLI,
   FeishuCLICover,
   FeishuCLISchema,
+  CodexECC,
+  CodexECCCover,
+  CodexECCSchema,
+  AIHedgeFund,
+  AIHedgeFundCover,
+  AIHedgeFundSchema,
 } from "./compositions";
 import {
+  getCompositionCatalogEntry,
   videoCompositionCatalog,
   videoStillCatalog,
 } from "./compositions/catalog";
@@ -52,6 +59,8 @@ import wechatclawbotSubtitles from "./data/wechatclawbot-subtitles.json";
 import pencildevSubtitles from "./data/pencildev-subtitles.json";
 import aiHarnessEngineerSubtitles from "./data/aiharnessengineer-subtitles.json";
 import feishuCliSubtitles from "./data/feishucli-subtitles.json";
+import codexEccSubtitles from "./data/codexecc-subtitles.json";
+import aiHedgeFundSubtitles from "./data/aihedgefund-subtitles.json";
 
 assertRegistryCoverage(videoCompositionCatalog, videoStillCatalog);
 
@@ -203,6 +212,66 @@ const feishuCliDefaultProps = FeishuCLISchema.parse({
   },
   sceneDurations: [597, 597, 659, 625, 659, 769, 623],
   precomputedSubtitles: feishuCliSubtitles,
+});
+
+const codexEccDefaultProps = CodexECCSchema.parse({
+  audio: {
+    backgroundMusic: "music/background.mp3",
+    backgroundMusicVolume: 0.14,
+    voiceoverEnabled: true,
+    voiceoverVolume: 1.0,
+    voiceId: "zh-CN-YunyangNeural",
+    voiceRate: 1.03,
+    voiceoverAudioFiles: [
+      "audio/codexecc-scene1.mp3",
+      "audio/codexecc-scene2.mp3",
+      "audio/codexecc-scene3.mp3",
+      "audio/codexecc-scene4.mp3",
+      "audio/codexecc-scene5.mp3",
+      "audio/codexecc-scene6.mp3",
+      "audio/codexecc-scene7.mp3",
+    ],
+  },
+  subtitle: {
+    enabled: true,
+    fontSize: 44,
+    position: "bottom",
+    highlightColor: "#2dd4ff",
+    textColor: "#ffffff",
+    backgroundColor: "rgba(8, 14, 28, 0.86)",
+  },
+  sceneDurations: [461, 390, 503, 456, 381, 565, 464],
+  precomputedSubtitles: codexEccSubtitles,
+});
+
+const aiHedgeFundDefaultProps = AIHedgeFundSchema.parse({
+  audio: {
+    backgroundMusic: "music/background.mp3",
+    backgroundMusicVolume: 0.16,
+    voiceoverEnabled: true,
+    voiceoverVolume: 1.0,
+    voiceId: "zh-CN-YunyangNeural",
+    voiceRate: 1.03,
+    voiceoverAudioFiles: [
+      "audio/aihedgefund-scene1.mp3",
+      "audio/aihedgefund-scene2.mp3",
+      "audio/aihedgefund-scene3.mp3",
+      "audio/aihedgefund-scene4.mp3",
+      "audio/aihedgefund-scene5.mp3",
+      "audio/aihedgefund-scene6.mp3",
+      "audio/aihedgefund-scene7.mp3",
+    ],
+  },
+  subtitle: {
+    enabled: true,
+    fontSize: 44,
+    position: "bottom" as const,
+    highlightColor: "#ffd700",
+    textColor: "#ffffff",
+    backgroundColor: "rgba(5, 10, 14, 0.86)",
+  },
+  sceneDurations: [366, 409, 473, 567, 533, 540, 324],
+  precomputedSubtitles: aiHedgeFundSubtitles,
 });
 
 export const RemotionRoot: React.FC = () => {
@@ -1234,6 +1303,33 @@ export const RemotionRoot: React.FC = () => {
           defaultProps={feishuCliDefaultProps}
         />
       )}
+      {/* 竖屏短视频：Codex 插入 Claude Code */}
+      {compositionIds.has("CodexECC") && (
+        <Composition
+          id="CodexECC"
+          component={CodexECC}
+          durationInFrames={3220}
+          fps={30}
+          width={1080}
+          height={1920}
+          schema={CodexECCSchema}
+          defaultProps={codexEccDefaultProps}
+        />
+      )}
+      {compositionIds.has("AIHedgeFund") && (
+        <Composition
+          id="AIHedgeFund"
+          component={AIHedgeFund}
+          durationInFrames={
+            getCompositionCatalogEntry("AIHedgeFund")!.durationInFrames
+          }
+          fps={30}
+          width={1080}
+          height={1920}
+          schema={AIHedgeFundSchema}
+          defaultProps={aiHedgeFundDefaultProps}
+        />
+      )}
       {/* GSDIntro 封面图 (微信视频号 3:4) */}
       {stillIds.has("GSDIntroCover") && (
         <Still
@@ -1314,6 +1410,39 @@ export const RemotionRoot: React.FC = () => {
             ...feishuCliDefaultProps,
             subtitle: {
               ...feishuCliDefaultProps.subtitle,
+              enabled: false,
+            },
+          }}
+        />
+      )}
+      {/* CodexECC 封面图 (微信视频号 3:4) */}
+      {stillIds.has("CodexECCCover") && (
+        <Still
+          id="CodexECCCover"
+          component={CodexECCCover}
+          width={1080}
+          height={1440}
+          schema={CodexECCSchema}
+          defaultProps={{
+            ...codexEccDefaultProps,
+            subtitle: {
+              ...codexEccDefaultProps.subtitle,
+              enabled: false,
+            },
+          }}
+        />
+      )}
+      {stillIds.has("AIHedgeFundCover") && (
+        <Still
+          id="AIHedgeFundCover"
+          component={AIHedgeFundCover}
+          width={1080}
+          height={1440}
+          schema={AIHedgeFundSchema}
+          defaultProps={{
+            ...aiHedgeFundDefaultProps,
+            subtitle: {
+              ...aiHedgeFundDefaultProps.subtitle,
               enabled: false,
             },
           }}

@@ -1,5 +1,105 @@
 # Findings
 
+## 2026-04-05 公众号主题深度调研
+
+- 用户提供了 1 篇公众号文章作为研究起点，需要围绕其主题做外部延伸调研。
+- 本次输出要求覆盖 Twitter、YouTube 和其他公开渠道，且结论需要可核查、可追溯。
+- 研究重点不是复述文章，而是识别文章主题在外部世界的实际进展、支持证据、反面信号和行业讨论。
+- 公众号正文已抓取，核心主题是：OpenAI 将 Codex 以插件形式接入 Claude Code，试图在不改变开发者主工作流的前提下切入 Claude Code 生态。
+- 文章中提到的核心线索包括：
+  - 插件仓库：`openai/codex-plugin-cc`
+  - 原始发帖人：Vaibhav (VB) Srivastav
+  - 主要命令：`/codex:review`、`/codex:adversarial-review`、`/codex:rescue`
+  - 技术实现关键词：本地 Codex CLI、Codex app server、复用本地认证和 MCP 配置
+  - 关键判断：竞争焦点正在从“谁的 IDE 更强”转向“谁能嵌入开发者现有工作流”
+- 官方仓库 README 明确给出产品定位：
+  - “Use Codex from inside Claude Code for code reviews or to delegate tasks.”
+  - 面向“已经在 Claude Code 工作流中”的用户，而不是要求用户迁移到独立产品。
+- 官方能力边界可归纳为两类：
+  - 审查型：`/codex:review`、`/codex:adversarial-review`
+  - 执行型：`/codex:rescue` 及配套的状态、结果、取消命令
+- 官方要求包括：
+  - ChatGPT 订阅（含免费版）或 OpenAI API key
+  - Node.js 18.18+
+  - 本机已安装或可安装 Codex CLI
+- 官方 FAQ 反复强调：该插件不是独立运行时，而是直接调用本地 Codex CLI 和 Codex app server，继承同一套认证、配置、仓库环境与本机设置。
+- 官方仓库发布后很快出现持续修复和版本更新：
+  - 2026-03-31 有 `1.0.2` 版本升级
+  - 同日加入 PR 测试与构建工作流
+  - 同日修复 `rescue` 交互契约和跨平台兼容问题
+- 初步判断：该插件不是一次性营销演示，而是进入快速迭代期的正式开源项目。
+- 社交平台原帖抓取存在限制，但从外部转引结果可确认：
+  - 原始传播确实由 `@reach_vb` 发起
+  - Techmeme 与多家二次报道均将该消息归因给 Vaibhav (VB) Srivastav 的 X 帖文
+  - 需要继续用其他公开材料交叉验证其论点，避免单靠二手摘要下结论
+- YouTube 侧已出现快速传播，当前可见的讨论重点不是“Codex 能不能单独用”，而是“放进 Claude Code 后最值钱的场景是什么”：
+  - `Chase AI` 重点强调 `adversarial review` 作为“第二审查者”的价值
+  - `Charlie Automates` 的两条短视频都把重点放在“在一个终端里混用两个竞品模型”的新工作流
+- 初步可见的社区共识：
+  - 正面：减少切换成本、为 Claude Code 用户增加第二视角、适合高风险改动前做压力测试
+  - 负面：大 diff、后台任务超时、review gate 行为与权限边界还不够成熟
+- GitHub issue 已经暴露几类早期稳定性问题：
+  - 大 diff 下 `adversarial-review` 可能触发输入或缓冲限制
+  - `rescue` 在大改动场景下可能超时
+  - review gate 的临时目录与持久目录读取不一致
+  - 存在用户对权限绕过风险的担忧
+- 这说明产品价值主张很清晰，但在“复杂工程场景”里的可靠性仍处于快速打磨阶段。
+- 从更广的产品背景看，这次插件并不是孤立动作：
+  - OpenAI 官方 Codex 文档已经把插件定义为“技能、应用集成和 MCP 服务的可复用工作流封装”
+  - Anthropic 官方文档则把 Claude Code marketplace 定义为“集中发现、版本跟踪、自动更新”的插件分发体系
+- 由此可见，双方都在把“编码助手”往“可扩展平台”方向推进，只是入口不同：
+  - OpenAI 更强调能力打包与工具接入
+  - Anthropic 更强调市场分发与团队部署
+- 独立媒体 The Decoder 给出的判断与公众号文章高度一致：
+  - Claude Code 已成为强势工作流入口
+  - OpenAI 与其等待用户迁移，不如把 Codex 直接送进现有工作流
+  - 这被视为 OpenAI 重新聚焦编码工具和企业用户的一部分
+- Hacker News 已出现基于 `codex-plugin-cc` 设计改造 Gemini CLI 接入 Claude Code 的案例，说明其影响已经从“单一插件”扩展到“跨模型适配模板”。
+- 对复杂工程可靠性的更细化证据：
+  - Issue #11 指出 `adversarial-review` 在约 16 个文件、660 行以上的改动场景，可能遇到缓冲区和输入上限问题
+  - Issue #122 指出 `rescue` 在 30+ 文件、约 2000 行的大改动里可能 5 分钟超时，结果留在后台日志却回不到上游会话
+  - Issue #75 指出项目级拒绝权限规则可能未被插件完全继承，形成潜在安全缺口
+- 这组证据表明：该插件对“第二审查视角”很有吸引力，但距离企业级默认开启还有稳定性与权限一致性门槛。
+- GitHub 时间线和活跃度信号：
+  - 仓库创建时间为 2026-03-30
+  - 2026-04-05 检索时，开放 issue 约 58 个，开放 PR 约 40 个
+  - 结合搜索结果中的 1 万级 star，可判断其在极短时间内获得了显著关注和社区参与
+- 由此可推断：
+  - 市场需求是真实存在的，尤其集中在“复用现有工作流”和“多模型交叉审查”
+  - 但现阶段也确实处于早期放量后的高频修补窗口，不适合把所有关键流程无保留托付给它
+
+## 2026-04-05 调研结论视频化
+
+- 用户要求使用 ECC 相关技能，把前述调研结论制作成视频。
+- 本次将采用 `remotion-best-practices` 作为 Remotion 实现参考，采用 `verification-loop` 作为交付前验证清单。
+- 叙事方向已确定为：
+  - 新闻切口：Codex 进入 Claude Code
+  - 结论拔高：竞争转向工作流入口与插件生态
+  - ECC 作为更完整的工作流样本
+  - 风险提醒：价值已验证，但成熟度仍在快速打磨
+- 已完成新视频 `CodexECC` 的 composition、封面、配音脚本、字幕同步与导出接入。
+- 已生成 7 段真实配音音频与对应字幕：
+  - 音频：`public/audio/codexecc-scene1..7.mp3`
+  - 字幕：`src/data/codexecc-subtitles.json`
+- 真实场景时长已回填：
+  - `sceneDurations = [461, 390, 503, 556, 434, 565, 482]`
+  - `durationInFrames = 3391`
+- 已完成成品输出：
+  - `out/CodexECC.mp4`
+  - `out/CodexECC-cover.png`
+  - `docs/codex-ecc-copy.md`
+- 已完成交付前验证：
+  - `npm run typecheck` 通过
+  - `npm test` 通过（20 tests）
+  - `npm run build` 通过
+  - `npm run media:build:codexecc` 通过
+  - `npm run media:check:codexecc` 通过
+- 已做结果核对：
+  - 主视频尺寸为 1080 x 1920
+  - 封面尺寸为 1080 x 1440
+  - 主视频时长约 113.09 秒
+  - 抽查关键帧，画面与字幕布局正常
+
 ## 2026-03-28 AI Harness Engineer Video
 
 - 已完成独立 composition 骨架接入：`src/compositions/AIHarnessEngineer/`

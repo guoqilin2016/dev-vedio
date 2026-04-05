@@ -340,30 +340,65 @@ npm run render:<name>:cover
 - **CSS-only icons replace emoji for visual impact**: clip-path polygons (stars), stacked offset rectangles (documents), side-by-side bars (context comparison) are more visually striking than emoji and render consistently across environments.
 - **Brainstorming before implementation saves iteration**: Structured Q&A (audience → format → narrative → visual style) + 2-3 approach proposals + section-by-section design approval prevents mid-implementation pivots.
 - **Actual TTS duration varies significantly from estimates**: Design spec estimated ~110-130s but actual TTS generated 165s. Always treat the sync script output as the single source of truth for timing.
+- **竖屏横向溢出是最常见的视觉缺陷**: 1080px 宽度下，双栏布局、固定像素 grid、长中文文案极易撑出画布。所有 flex 子项必须 `flex: "1 1 0"` + `minWidth: 0`，grid 列用 `minmax(0, 1fr)` 或 `fr` 比例，文本加 `overflowWrap`/`wordBreak`。
+- **字幕位置是不可变的锚点**: 字幕 `bottom: 380` 由 `KaraokeSubtitle` 独立绝对定位，不受 BaseScene padding 或内容布局影响。任何布局调整都不能改变这个值。
+- **标题渐变色比纯白色更醒目**: 使用 `-webkit-background-clip: text` + `linear-gradient` 实现渐变文字填充，配合 `textShadow` 微发光，在深色背景下视觉冲击力远强于纯白。
+- **GitHub 仓库卡片可完全用 React 模拟**: 仓库名、描述、Stars/Forks/Issues 统计、语言条等都可用 inline styles 实现，不需要截图或外部图片。适合开源项目主题的 Hook 场景。
+- **Review Gate MCP 作为每次回答后的反馈通道**: 每次回答后调用 `review_gate_chat`，用户可以在弹窗中直接给出后续指令，避免会话中断。
 
 ### 7. 竖屏短视频 (9:16) 设计规范
 
 #### 布局规范
 - **分辨率**: 1080 x 1920
 - **内容安全区**: `top: 0, bottom: 420` — 所有核心内容必须在距底部 420px 以上
-- **字幕位置**: `bottom: 380` — 避开视频号/抖音底部标题、合集、操作栏
+- **字幕位置**: `bottom: 380` — 避开视频号/抖音底部标题、合集、操作栏。**任何布局调整都不允许改变字幕位置**
 - **内容与字幕间距**: 字幕为单行显示，内容安全区底部与字幕顶部间距约 40px
 - **内容居中**: 使用 flexbox (`justifyContent: "center"`) + 安全区容器
 - **安全区容器模板**: `position: absolute; top: 0; left: 0; right: 0; bottom: 420; display: flex; flexDirection: column; justifyContent: center; padding: 0 40px;`
+- **BaseScene padding 三值简写**: `"上 左右 下"`，通过调整三个值控制内容区范围。推荐范围：上 `80~160px`，左右 `60~100px`，下 `400~520px`
+
+#### 横向防溢出规范
+
+竖屏 1080px 宽度下，内容极易撑出画布。所有布局必须遵循以下防溢出模式：
+
+**flex 布局**:
+- 等分子项必须用 `flex: "1 1 0"` + `minWidth: 0`（不能只写 `flex: 1`）
+- 固定宽度子项用 `flex: "0 0 Xpx"` + `flexShrink: 0`
+- 文本容器必须加 `minWidth: 0` 让 flex 子项可以被压缩
+
+**grid 布局**:
+- 等分列用 `minmax(0, 1fr)` 而非 `1fr`（防止内容撑开列宽）
+- 避免多列固定像素宽度，改用 `fr` 比例（如 `"2fr 3fr 3fr 2.5fr"`）
+
+**文本换行**:
+- 所有可能含长文本的元素必须加 `overflowWrap: "break-word"` 和 `wordBreak: "break-word"`
+- badge/tag 元素加 `maxWidth: "100%"` + `overflowWrap: "anywhere"` + `boxSizing: "border-box"`
+
+**Panel 组件**:
+- 支持可选 `style` prop 透传样式
+- 在 flex/grid 子项中使用时，务必传入 `style={{ minWidth: 0, overflow: "hidden" }}`
+
+**外层容器兜底**:
+- BaseScene 的 `<AbsoluteFill>` 加 `overflow: "hidden"` 防止任何内容超出画布
 
 #### 字体大小规范 (1080px 宽度)
 | 元素类型 | 推荐字号 | 备注 |
 |---------|---------|------|
-| 场景主标题 | 56-66px | fontWeight: 900 |
-| 场景副标题 | 42-50px | fontWeight: 700 |
-| 内容正文 | 28-36px | fontWeight: 500-600 |
-| 卡片标题 | 30-42px | fontWeight: 800 |
-| 卡片描述 | 18-24px | color: #777-#999 |
-| 标签/Tag | 14-20px | letterSpacing: 3-10, 大写英文 |
-| 核心数字 | 56-110px | fontFamily: monospace, fontWeight: 900 |
-| CTA 金句 | 40-54px | 带发光 textShadow |
+| 场景主标题 | 64-72px | fontWeight: 900，推荐渐变色填充 |
+| 场景副标题 | 36-50px | fontWeight: 700 |
+| 内容正文 | 24-36px | fontWeight: 500-600 |
+| 卡片标题 | 28-34px | fontWeight: 800-900 |
+| 卡片描述 | 22-26px | color: mutedTextColor |
+| 标签/Tag | 18-22px | letterSpacing: 3-10, 大写英文 |
+| 核心数字 | 52-110px | fontFamily: monospace, fontWeight: 900 |
+| CTA 金句 | 44-54px | 带发光 textShadow |
+| CTA 正文 | 32-36px | fontWeight: 700 |
+| Stats 数值 | 24-28px | fontFamily: monospace, fontWeight: 800 |
 | 字幕 | 44px | fontSize in subtitle config |
-| Hashtag | 20-24px | color: #444, letterSpacing: 4 |
+| Hashtag/Tag pill | 20-24px | color: mutedTextColor, letterSpacing: 4 |
+| GitHub 仓库名 | 26-28px | color: highlightColor, fontWeight: 700 |
+
+**注意**: 字号和内容密度需要平衡——信息量大的场景（如 4 列表格、3 列风险卡）字号适当缩小；信息量少的场景（如 CTA）字号可以放大填充空间。
 
 #### 封面 (第一帧) 规范
 - **第一帧必须是完整封面**，不能是黑屏或淡入中间状态
@@ -399,10 +434,14 @@ npm run render:<name>:cover
 
 #### 场景设计模式
 - **7 场景结构**: Hook → 痛点 → 核心亮点 → 深入1 → 深入2 → 深入3 → CTA
-- **每个场景都有**: 顶部英文标签（letterSpacing: 8+）+ 中文大标题 + 内容区 + 底部金句/进度
+- **TitleBlock 组件**: 每个场景共用 `TitleBlock`，包含可选 `label`（英文标签）、`title`（渐变主标题）、`subtitle`（副标题）
+- **场景标签 (label)**: 可选。传空字符串 `""` 时不渲染。用于显示如 "SCENE 01 / HOOK" 的顶部标记
+- **渐变标题**: 传入 `highlightColor` 后，标题使用 `linear-gradient(135deg, accentColor, highlightColor)` 渐变填充 + 微发光 `textShadow`。不传则使用纯色 `textColor`
+- **标题与内容间距**: TitleBlock 自带 `marginBottom` 额外拉开与正文内容的距离，外层 flex 容器 `gap: 40px`
 - **HUD 装饰**: 四角边框（border + opacity 动画）增强科技感
 - **背景层**: radial-gradient + 扫描线 repeating-linear-gradient
-- **进度条**: 右侧竖条 (width: 3, height: 100) 显示当前场景进度
+- **进度条**: 横向放在字幕上方（`bottom: 450`，字幕在 `bottom: 380`），宽度随场景进度从左到右填充，颜色使用 `accentColor → highlightColor` 渐变
+- **GitHub 仓库卡片**: Hook 场景可使用 React + inline styles 模拟 GitHub 仓库页面（仓库名、描述、Stars/Forks/Issues/PRs 统计、语言条），替代传统双栏对比布局，适合开源项目主题视频
 
 #### 动画规范
 
@@ -498,6 +537,8 @@ interface SubtitleLine { words: SubtitleWord[]; startFrame: number; endFrame: nu
 | AutoResearch | 9:16 | ~134s | AutoResearch Karpathy让AI自己搞科研 (7-scene vertical short video) |
 | GSDIntro | 9:16 | ~165s | GSD Get Shit Done 38000Star AI编程Context Rot解决方案 (7-scene vertical short video) |
 | PencilDev | 9:16 | ~113s | Pencil.dev 主力设计软件与 Agent 共创工作流 (7-scene vertical short video) |
+| CodexECC | 9:16 | ~107s | Codex 插件生态 — OpenAI 把 Codex 塞进 Claude Code (7-scene vertical short video) |
+| AIHedgeFund | 9:16 | ~107s | AI Hedge Fund 50k Stars AI投研团队 (7-scene vertical short video) |
 
 ## Notes for agents
 
@@ -506,3 +547,25 @@ interface SubtitleLine { words: SubtitleWord[]; startFrame: number; endFrame: nu
 - Update this file when new scripts or lint/test tooling are added.
 - When creating a new video, follow the "Video generation workflow" section above.
 - Always run `npm run typecheck` after changes to catch type errors early.
+
+### Review Gate 规则
+
+**主 agent每次回答完用户问题后，必须调用 `user-review-gate-v2` MCP 的 `review_gate_chat` 工具**，让用户在弹窗中提供反馈或后续指令，subagent不需要调用，。
+
+调用示例：
+```
+server: user-review-gate-v2
+toolName: review_gate_chat
+arguments: {
+  title: "Review Gate",
+  message: "已完成 XX 操作的简要描述。是否需要调整？",
+  context: "操作背景和上下文",
+  urgent: false
+}
+```
+
+规则：
+- 每次回答结束都要调用，无论是回答问题还是完成代码修改
+- `message` 用中文，简要概括刚完成的操作和结果
+- `context` 提供操作的技术背景，便于用户判断
+- 用户通过弹窗返回的文字作为下一步指令

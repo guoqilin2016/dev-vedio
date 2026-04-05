@@ -372,6 +372,46 @@ export const videoTemplateRegistry = [
       videoChannel: videoChannelProfile,
     },
   }),
+  createEntry({
+    compositionId: "CodexECC",
+    stillId: "CodexECCCover",
+    templateType: "vertical-7-scene",
+    aspectRatio: "9:16",
+    safeAreaProfile: shortVideoSafeArea,
+    subtitleMode: "single-line-bottom",
+    supports: {
+      hookSlot: true,
+      coverSlot: true,
+      proofSlot: true,
+    },
+    output: {
+      video: "out/CodexECC.mp4",
+      cover: "out/CodexECC-cover.png",
+    },
+    platformProfiles: {
+      videoChannel: videoChannelProfile,
+    },
+  }),
+  createEntry({
+    compositionId: "AIHedgeFund",
+    stillId: "AIHedgeFundCover",
+    templateType: "vertical-7-scene",
+    aspectRatio: "9:16",
+    safeAreaProfile: shortVideoSafeArea,
+    subtitleMode: "single-line-bottom",
+    supports: {
+      hookSlot: true,
+      coverSlot: true,
+      proofSlot: true,
+    },
+    output: {
+      video: "out/AIHedgeFund.mp4",
+      cover: "out/AIHedgeFund-cover.png",
+    },
+    platformProfiles: {
+      videoChannel: videoChannelProfile,
+    },
+  }),
 ] as const satisfies readonly VideoTemplateRegistryEntry[];
 
 export const listVideoTemplates = (): VideoTemplateRegistryEntry[] =>

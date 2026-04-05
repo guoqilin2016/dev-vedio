@@ -1,0 +1,81 @@
+{
+  "compositionId": "CodexECC",
+  "stillId": "CodexECCCover",
+  "sceneCount": 7,
+  "subtitleDataFile": "src/data/codexecc-subtitles.json",
+  "audioFiles": [
+    "audio/codexecc-scene1.mp3",
+    "audio/codexecc-scene2.mp3",
+    "audio/codexecc-scene3.mp3",
+    "audio/codexecc-scene4.mp3",
+    "audio/codexecc-scene5.mp3",
+    "audio/codexecc-scene6.mp3",
+    "audio/codexecc-scene7.mp3"
+  ],
+  "sceneDurations": [
+    461,
+    390,
+    503,
+    456,
+    381,
+    565,
+    464
+  ],
+  "totalDurationInFrames": 3220,
+  "scenes": [
+    {
+      "sceneIndex": 1,
+      "audioFile": "audio/codexecc-scene1.mp3",
+      "audioDurationSec": 14.352,
+      "audioDurationInFrames": 431,
+      "sceneDurationInFrames": 461
+    },
+    {
+      "sceneIndex": 2,
+      "audioFile": "audio/codexecc-scene2.mp3",
+      "audioDurationSec": 12,
+      "audioDurationInFrames": 360,
+      "sceneDurationInFrames": 390
+    },
+    {
+      "sceneIndex": 3,
+      "audioFile": "audio/codexecc-scene3.mp3",
+      "audioDurationSec": 15.768,
+      "audioDurationInFrames": 473,
+      "sceneDurationInFrames": 503
+    },
+    {
+      "sceneIndex": 4,
+      "audioFile": "audio/codexecc-scene4.mp3",
+      "audioDurationSec": 14.208,
+      "audioDurationInFrames": 426,
+      "sceneDurationInFrames": 456
+    },
+    {
+      "sceneIndex": 5,
+      "audioFile": "audio/codexecc-scene5.mp3",
+      "audioDurationSec": 11.688,
+      "audioDurationInFrames": 351,
+      "sceneDurationInFrames": 381
+    },
+    {
+      "sceneIndex": 6,
+      "audioFile": "audio/codexecc-scene6.mp3",
+      "audioDurationSec": 17.832,
+      "audioDurationInFrames": 535,
+      "sceneDurationInFrames": 565
+    },
+    {
+      "sceneIndex": 7,
+      "audioFile": "audio/codexecc-scene7.mp3",
+      "audioDurationSec": 14.472,
+      "audioDurationInFrames": 434,
+      "sceneDurationInFrames": 464
+    }
+  ],
+  "output": {
+    "video": "out/CodexECC.mp4",
+    "cover": "out/CodexECC-cover.png"
+  },
+  "generatedAt": "2026-04-05T03:56:34.376Z"
+}
