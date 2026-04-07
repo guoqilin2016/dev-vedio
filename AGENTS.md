@@ -1,3 +1,8 @@
+---
+description: 
+alwaysApply: true
+---
+
 # Repository Agent Guide
 
 This file is for agentic coding assistants working in this repo.

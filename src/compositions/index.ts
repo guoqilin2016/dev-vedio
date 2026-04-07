@@ -42,3 +42,6 @@ export { CodexECCSchema, type CodexECCProps } from "./CodexECC/schema";
 export { AIHedgeFund } from "./AIHedgeFund";
 export { AIHedgeFundCover } from "./AIHedgeFund/Cover";
 export { AIHedgeFundSchema, type AIHedgeFundProps } from "./AIHedgeFund/schema";
+export { AgentSkills } from "./AgentSkills";
+export { AgentSkillsCover } from "./AgentSkills/Cover";
+export { AgentSkillsSchema, type AgentSkillsProps } from "./AgentSkills/schema";

@@ -39,6 +39,9 @@ import {
   AIHedgeFund,
   AIHedgeFundCover,
   AIHedgeFundSchema,
+  AgentSkills,
+  AgentSkillsCover,
+  AgentSkillsSchema,
 } from "./compositions";
 import {
   getCompositionCatalogEntry,
@@ -61,6 +64,7 @@ import aiHarnessEngineerSubtitles from "./data/aiharnessengineer-subtitles.json"
 import feishuCliSubtitles from "./data/feishucli-subtitles.json";
 import codexEccSubtitles from "./data/codexecc-subtitles.json";
 import aiHedgeFundSubtitles from "./data/aihedgefund-subtitles.json";
+import agentskillsSubtitles from "./data/agentskills-subtitles.json";
 
 assertRegistryCoverage(videoCompositionCatalog, videoStillCatalog);
 
@@ -1446,6 +1450,60 @@ export const RemotionRoot: React.FC = () => {
               enabled: false,
             },
           }}
+        />
+      )}
+      {/* AgentSkills 竖屏短视频 */}
+      {compositionIds.has("AgentSkills") && (
+        <Composition
+          id="AgentSkills"
+          component={AgentSkills}
+          durationInFrames={3796}
+          fps={30}
+          width={1080}
+          height={1920}
+          schema={AgentSkillsSchema}
+          defaultProps={AgentSkillsSchema.parse({
+            audio: {
+              backgroundMusic: "music/background.mp3",
+              backgroundMusicVolume: 0.16,
+              voiceoverEnabled: true,
+              voiceoverVolume: 1.0,
+              voiceId: "zh-CN-YunyangNeural",
+              voiceRate: 1.03,
+              voiceoverAudioFiles: [
+                "audio/agentskills-scene1.mp3",
+                "audio/agentskills-scene2.mp3",
+                "audio/agentskills-scene3.mp3",
+                "audio/agentskills-scene4.mp3",
+                "audio/agentskills-scene5.mp3",
+                "audio/agentskills-scene6.mp3",
+                "audio/agentskills-scene7.mp3",
+              ],
+            },
+            subtitle: {
+              enabled: true,
+              fontSize: 44,
+              position: "bottom",
+              highlightColor: "#34A853",
+              textColor: "#ffffff",
+              backgroundColor: "rgba(7, 10, 20, 0.86)",
+            },
+            sceneDurations: [468, 551, 522, 525, 625, 580, 525],
+            precomputedSubtitles: agentskillsSubtitles,
+          })}
+        />
+      )}
+      {/* AgentSkills 封面图 (微信视频号 3:4) */}
+      {stillIds.has("AgentSkillsCover") && (
+        <Still
+          id="AgentSkillsCover"
+          component={AgentSkillsCover}
+          width={1080}
+          height={1440}
+          schema={AgentSkillsSchema}
+          defaultProps={AgentSkillsSchema.parse({
+            subtitle: { enabled: false },
+          })}
         />
       )}
       {/* AutoResearch 封面图 (微信视频号 3:4) */}

@@ -71,6 +71,10 @@
     "sync:subtitle:aihedgefund": "npx tsx scripts/sync-subtitle-aihedgefund.ts",
     "render:aihedgefund": "remotion render src/index.ts AIHedgeFund --timeout=180000 --output=out/AIHedgeFund.mp4",
     "render:aihedgefund:cover": "remotion still src/index.ts AIHedgeFundCover --output=out/AIHedgeFund-cover.png",
+    "generate:voiceover:agentskills": "npx tsx scripts/generate-voiceover-agentskills.ts",
+    "sync:subtitle:agentskills": "npx tsx scripts/sync-subtitle-agentskills.ts",
+    "render:agentskills": "remotion render src/index.ts AgentSkills --timeout=180000 --output=out/AgentSkills.mp4",
+    "render:agentskills:cover": "remotion still src/index.ts AgentSkillsCover --output=out/AgentSkills-cover.png",
     "test": "vitest run",
     "test:contracts": "vitest run src/shared/**/*.test.ts src/server/**/*.test.ts",
     "typecheck": "tsc --noEmit"
